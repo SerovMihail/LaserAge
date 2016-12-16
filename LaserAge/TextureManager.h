@@ -56,3 +56,4 @@ public:
 	~TextureManager();
 };
 
+extern TextureManager tm;

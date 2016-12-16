@@ -4,7 +4,7 @@
 
 using namespace sf;
 
-Menu::Menu(RenderWindow & window, int widthWindow, int heightWindow, TextureManager & tm)
+Menu::Menu(RenderWindow & window, int widthWindow, int heightWindow)
 {
 
 	bool isMenu = true; // Мы в меню

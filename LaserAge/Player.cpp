@@ -1,15 +1,14 @@
 #include <SFML/Graphics.hpp>
 #include "Player.h"
-//#include "Bullet.h"
-//#include "GameObject.h"
 #include "TextureManager.h"
 
 
-using namespace sf;
 
-Player::Player(String Name, float X, float Y, int W, int H, TextureManager & tm, int Health):GameObject(Name, X, Y, W, H, tm)
+
+Player::Player(String Name, float X, float Y, int W, int H, int Health):GameObject(Name, X, Y, W, H)
 {
 	texture.loadFromImage(tm.getPlayerImg());
+	//texture.loadFromFile("images/orangePlayer.png");
 	sprite.setTexture(texture);
 	sprite.setScale(0.5, 0.5); // масштаб
 
@@ -25,15 +24,20 @@ Player::Player(String Name, float X, float Y, int W, int H, TextureManager & tm,
 
 Player::~Player()
 {
+
+}
+
+void Player::newGame() {
+
+	x = windowWidth / 2;
+	y = windowHeight * 0.8;
+
 	bulletLvl = 1;
 	playerScore = 0;
 	life = 1;
 	health = 100;
-
-	texture.loadFromFile("images/orangePlayer.png");
-	sprite.setTexture(texture);
-	sprite.setScale(0.5, 0.5); // масштаб
 	
+
 }
 
 void Player::update(float time)
@@ -64,7 +68,7 @@ void Player::update(float time)
 					else {
 						break;
 					}
-			case up: if (y > 0) {
+			case up: if (y > (windowHeight / 2)) {
 				dx = 0; dy = -speed; x += dx*time;
 				y += dy*time; break;
 			}
@@ -74,7 +78,7 @@ void Player::update(float time)
 	}
 
 	if (health <= 0) { life--; health = 100; };
-	if (life <= 0) { iAmAlive = false; }
+	if (life <= 0) { iAmAlive = false;	}
 
 	speed = 0; // Останавливаем движение корабля
 

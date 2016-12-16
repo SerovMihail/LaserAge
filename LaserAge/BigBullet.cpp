@@ -3,7 +3,7 @@
 
 
 
-BigBullet::BigBullet(String Name, float X, float Y, int W, int H, TextureManager & tm, int DX, int DY) :Bullet(Name, X, Y, W, H, tm, DX, DY)
+BigBullet::BigBullet(String Name, float X, float Y, int W, int H) :Bullet(Name, X, Y, W, H)
 {
 	texture.loadFromImage(tm.getBulletImg(3));
 	sprite.setTexture(texture);	

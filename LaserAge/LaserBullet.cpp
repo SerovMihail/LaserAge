@@ -4,7 +4,7 @@
 
 
 
-LaserBullet::LaserBullet(String Name, float X, float Y, int W, int H, TextureManager & tm, int DX, int DY):Bullet(Name, X, Y, W, H, tm, DX, DY)
+LaserBullet::LaserBullet(String Name, float X, float Y, int W, int H):Bullet(Name, X, Y, W, H)
 {
 	texture.loadFromImage(tm.getBulletImg(1) );
 	sprite.setTexture(texture);

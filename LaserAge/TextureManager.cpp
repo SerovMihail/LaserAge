@@ -1,9 +1,8 @@
+#include <SFML/Graphics.hpp>
 #include "TextureManager.h"
 #include "Player.h"
-#include <SFML/Graphics.hpp>
 #include <iostream> 
 #include <sstream>
-
 
 using namespace sf;
 
@@ -67,16 +66,16 @@ TextureManager::TextureManager(int widthWindow, int heightWindow)
 	hardEnemy.loadFromFile("images/space3.png");
 
 	// Игра закончена
-	gameOver.setString("Game Over\n\n Esc - Exit\n\n Space - Start New Game");
+	gameOver.setString("Game Over\n\n Esc - Exit\n\n 'E' - Start New Game");
 	gameOver.setFont(font);
 	gameOver.setCharacterSize(30);
 	gameOver.setStyle(Text::Bold | Text::Underlined);//жирный и подче
 	gameOver.setPosition(widthWindow / 4, heightWindow / 4);//задаем позицию текста, центр камеры
 
 	// Выпобедили
-	youWin.setString("You win!\n\n Esc - Exit\n\n Space - Start New Game");
+	youWin.setString("You win!\n\n Esc - Exit\n\n 'E' - Start New Game");
 	youWin.setFont(font);
-	youWin.setCharacterSize(60);
+	youWin.setCharacterSize(30);
 	youWin.setStyle(Text::Bold | Text::Underlined);//жирный и подче
 	youWin.setPosition(widthWindow / 4, heightWindow / 4);//задаем позицию текста, центр камеры
 	
@@ -164,3 +163,7 @@ TextureManager::~TextureManager()
 {
 }
 
+
+
+
+TextureManager tm(1000, 500);

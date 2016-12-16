@@ -3,7 +3,7 @@
 
 
 
-ContainerBullet::ContainerBullet(String Name, float X, float Y, int W, int H, TextureManager & tm/*, int W, int H*/) :Container(Name, X, Y, W, H , tm)
+ContainerBullet::ContainerBullet(String Name, float X, float Y, int W, int H) :Container(Name, X, Y, W, H)
 {
 	texture.loadFromImage(tm.getContainerImg("bullet"));
 	sprite.setTexture(texture);

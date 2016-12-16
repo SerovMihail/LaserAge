@@ -4,8 +4,10 @@
 
 
 
-EnemyBullet::EnemyBullet(String Name, float X, float Y, int W, int H, TextureManager & tm, int DX, int DY) :Bullet(Name, X, Y, W, H, tm, DX, DY)
+EnemyBullet::EnemyBullet(String Name, float X, float Y, int W, int H) :Bullet(Name, X, Y, W, H)
 {
+	speed *= (-1);
+
 	texture.loadFromImage(tm.getEnemyLaser1());
 	sprite.setTexture(texture);
 	sprite.setScale(0.5, 0.5); // לאסרעאב

@@ -1,13 +1,15 @@
-#include "normalEneme.h"
-#include "Entity.h"
-#include "Enyme1.h"
+#include "NormalEnemy.h"
+#include "Enemy.h"
+#include "TextureManager.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <list> 
 #include <algorithm> 
 
-normalEneme::normalEneme(String Name, float X, float Y, int W, int H, TextureManager & tm) :Enyme(Name, X, Y, W, H, tm) {
+using namespace sf;
+
+NormalEnemy::NormalEnemy(String Name, float X, float Y, int W, int H) :Enyme(Name, X, Y, W, H) {
 	x = X;
 	y = Y;
 
@@ -24,13 +26,13 @@ normalEneme::normalEneme(String Name, float X, float Y, int W, int H, TextureMan
 	spriteHeight = sprite.getTextureRect().height; // Высота спрайта
 	spriteWidth = sprite.getTextureRect().width; // Ширина спрайта	
 }
-void normalEneme::dv() {
-	x = x + dx;
-	y = y + dy;
-	if (y >= 250 || y <= 10) {
+void NormalEnemy::dv(float time) {
+	x = x + dx*time;
+	y = y + dy*time;
+	if (y >= 250 || y <= 50) {
 		dy = dy*(-1);
 	}
-	if (x >= 960 || x <= 40) {
+	if (x >= 900 || x <= 60) {
 		//t1 = 0;
 		dx = dx*(-1);
 	}

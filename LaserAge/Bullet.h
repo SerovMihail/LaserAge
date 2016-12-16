@@ -11,9 +11,10 @@ protected:
 	int bulletLvl;
 	
 public:
-	Bullet(String Name, float X, float Y, int W, int H, TextureManager & tm, int DX, int DY);
-	
+	Bullet(String Name, float X, float Y, int W, int H);
+
 	int makeDamage() { return damage; }
+	
 	void update(float time);
 
 	~Bullet();

@@ -17,10 +17,10 @@
 #include <iterator>
 #include <ctime>
 // Сашино 
-#include "Enyme1.h"
-#include "hardEneme.h"
-#include "easyEneme.h"
-#include "normalEneme.h"
+#include "Enemy.h"
+#include "HardEnemy.h"
+#include "EasyEnemy.h"
+#include "NormalEnemy.h"
 #include "EnemyBullet.h"
 
 using namespace sf;
@@ -33,41 +33,31 @@ GameManager::GameManager()
 	spawnTime = 0.0; // Таймер спавна
 	fpsTime = 0.0; // Таймер для отвязки к быстродействию процессора
 	level = 1; // Начинаем с первого уровня 
+	restartGame = false;
+	maxLvl = 4; // Всего 3 уровня
 	
 }
 
-TextureManager tm(1000, 500);
-Player p("Player", (1000 / 2), (500 * 0.8), 1000, 500, tm, 100);
-bool GameManager::play(int level) 
+
+
+bool GameManager::play(int & Level)
 {
-	//TextureManager tm(1000, 500); // Можно ли так?)
-	
+
 	RenderWindow window(VideoMode(widthWindow, heightWindow), "LaserAge");
 
-	//Player p("Player", (widthWindow / 2), (heightWindow * 0.8), widthWindow, heightWindow, tm, 100);
-	
-	selectLvl(level);
+	Player static p("Player", (widthWindow / 2), (heightWindow * 0.8), 1000, 500, 100);
 
+	selectLvl(level); // Загрузка актуальных для уровня врагов
 
-	// Инициализация классов
-	//TextureManager tm(widthWindow, heightWindow); // инициализация картинок и свойст шрифта отображения	
-
-	if (level == 1) {
-		
-		Menu m(window, widthWindow, heightWindow, tm);
-		
+	if (level == 1) { // Только при начальной загрузке должен высвечиваться экран меню		
+		Menu m(window, widthWindow, heightWindow);		
 	}
-	
-	
-	
 
 	
 	Event event;
 	while (window.isOpen())
 	{		
-		while (p.getIAmAlive() == true) {
-			
-			tickTime();
+		while (p.getIAmAlive() == true) { // Цикл игры продолжается пока игрок жив ИЛИ пока все враги живы			
 
 			while (window.pollEvent(event))
 			{
@@ -75,92 +65,96 @@ bool GameManager::play(int level)
 					window.close();
 				if (event.key.code == sf::Keyboard::Space)
 				{
-					selectWeapon(p.getBulletLvl(), tm, p); // Аргументы: Уровень пуль - определяет исп класс. тм - хранит имг. р - для координат			
+					selectWeapon(p.getBulletLvl(), p); // Аргументы: Уровень пуль - определяет исп класс. тм - хранит имг. р - для координат			
 
-				}				
+				}			
 			}
 
-			window.clear();
+			tickTime(); // Обновляем время
 
-			window.draw(tm.getBackgroundTexture()); // задний фон
+			window.clear();			
 
-			runContainer(spawnTime, tm); // запускаем контейнеры
+			runContainer(spawnTime); // запускаем контейнеры
 
 			 // Обновляем всё, обрабатываем столкновения
-			update(p, tm);
-			// Пули
-			for (it = bullet.begin(); it != bullet.end(); it++) {
-				window.draw((*it)->getSprite()); //рисуем entities объекты (сейчас это только враги)
-			}
-			//Бонусы
-			for (bt = bonus.begin(); bt != bonus.end(); bt++) {
-				window.draw((*bt)->getSprite()); //рисуем entities объекты (сейчас это только враги)
-			}
-			//Враги
-			for (et = entities.begin(); et != entities.end(); et++) {				
-				window.draw((*et)->getSprite());
-			}
-
-			for (ebt = ebullet.begin(); ebt != ebullet.end(); ebt++) {
-				window.draw((*ebt)->getSprite()); //рисуем entities объекты (сейчас это только враги)
-			}
-
-			// обвноялем положение игрока и рисуем его
-			
-			window.draw(p.getSprite());
-
-			// Устанавливаем информацию об игроке и выводим её
-			tm.setText(p);
-			window.draw(tm.getText());
-
+			update(p);
+			// рисуем всё
+			draw(window, p);
 
 			window.display();
 
 			/*std::cout << fpsTime << "\n";
 			std::cout << gameTime << "\n";
 			std::cout << spawnTime << "\n";*/
-			//std::cout << spawnTime << "\n";
-			
-			if (entities.empty()) {
-				if (level <= 2) { level++; return true; }
-				else {
-					p.setIAmAlive(false);
-					p.setWin(true);
-				}
+
+
+
+			if (p.getIAmAlive() == false) {			// Если игрок умер 
+				clearAllContainer();
+				p.setWin(false);
+				
 			}
 			
-		}
+			if (entities.empty()) { // Если враги закончились
+				if (level <= maxLvl) {  // Переход на следующий уровень т.к не вся игра пройдена
+					bullet.clear();
+					ebullet.clear();
+					level++;
+					return true; // попадаем в gameRunning
+				}
+				else { // Закончен последний уровень
+					
+					p.setIAmAlive(false);
+					p.setWin(true);
+				}					
+			}
+		}	
 
-		window.clear();
-		if (p.getWin() == true ) { window.draw(tm.getWinText()); }
-		else { window.draw(tm.getTextGameOver()); }		
-		window.display();
+		
 
-
+		// Цикл для перезагрузки игры. Мы либо умерли, либо победили. Ожидаем выбора пользователя
 		while (window.pollEvent(event))
 		{
-			if (event.key.code == sf::Keyboard::Escape) { window.close(); }				
-			if (event.key.code == sf::Keyboard::Space)
+			window.clear();
+
+			if (p.getWin() == true) {
+				window.draw(tm.getWinText());
+			}
+			else {
+				window.draw(tm.getTextGameOver());
+			}
+
+			window.display();
+
+			if (event.key.code == sf::Keyboard::Escape) { window.close(); }
+			if (event.key.code == sf::Keyboard::E)
 			{
 				// Возвращаем значения в начальное состояние и удаляем старых врагов, пули
 				p.setIAmAlive(true);
 				p.setWin(false);
-				entities.clear();
-				ebullet.clear();
-				bullet.clear();
-				//p.~Player();
-				Player p("Player", (widthWindow / 2), (heightWindow * 0.8), widthWindow, heightWindow, tm, 100);
-				gameRunning(1);
+				p.newGame();
+				clearAllContainer();
+
+				restartGame = true;				
+				return true; // перезагрузка
+				
 			}
 		}
-		
 	}
+
 	return 0;
+}
+
+void GameManager::clearAllContainer() {
+	ebullet.clear();
+	bullet.clear();
+	bonus.clear();
+	entities.clear();
 }
 
 
 
-void GameManager::update(Player & p, TextureManager & tm) {	
+void GameManager::update(Player & p) {	
 	//////// ИГРОК. ОБНОВЛЯЕМ ПОЛОЖЕНИЕ И СЛЕДИМ ЗА ВЫХОД ЗА ЭКРАН ///
 	p.update(fpsTime);
 	/////////////////////////////////////////////////////////////
@@ -272,9 +266,9 @@ void GameManager::update(Player & p, TextureManager & tm) {
 	////// ВРАГИ. ИХ ОБНОВЛЕНИЕ //////
 	for (et = entities.begin(); et != entities.end(); et++) {
 		
-		(*et)->dv();
-		if ((spawnTime > 2000 && spawnTime < 2010) || (spawnTime > 5000 && spawnTime < 5010) || (spawnTime > 8000 && spawnTime < 8010)) {
-			ebullet.push_back(new EnemyBullet("enemyLaser", (*et)->getX(), (*et)->getY(), widthWindow, heightWindow, tm, 0, -1));
+		(*et)->dv(fpsTime);
+		if ((spawnTime > 2000 && spawnTime < 2005) || (spawnTime > 5000 && spawnTime < 5005) || (spawnTime > 8000 && spawnTime < 8005)) {
+			ebullet.push_back(new EnemyBullet("enemyLaser", (*et)->getX(), (*et)->getY(), widthWindow, heightWindow));
 		}
 
 	}
@@ -293,14 +287,14 @@ void GameManager::tickTime() {
 	srand(time(0));// автоматическая рандомизация
 }
 
-void GameManager::runContainer(float spawntime, TextureManager & tm) {
+void GameManager::runContainer(float spawntime) {
 	// бонусы
-	if (spawnTime > 8000 && spawnTime < 8010)  {
-		bonus.push_back(new ContainerBullet("Bullet", rand() % widthWindow, 0, widthWindow, heightWindow, tm));
+	if (spawnTime == 5000)  {
+		bonus.push_back(new ContainerBullet("Bullet", rand() % widthWindow, 0, widthWindow, heightWindow));
 
 	}
-	if (spawnTime > 4000 && spawnTime < 4010) {
-		bonus.push_back(new ContainerLife("Life", rand() % widthWindow, 0, widthWindow, heightWindow, tm));
+	if (spawnTime == 10000) {
+		bonus.push_back(new ContainerLife("Life", rand() % widthWindow, 0, widthWindow, heightWindow));
 
 	}
 
@@ -309,10 +303,10 @@ void GameManager::runContainer(float spawntime, TextureManager & tm) {
 	}
 }
 
-void GameManager::selectWeapon(int weaponLvl, TextureManager & tm, Player & p) {
-	if (weaponLvl == 1) { bullet.push_back(new LaserBullet("LaserBullet", p.getX(/*p*/) + (p.getSpriteWidth() / 4), p.getY(/*p*/), widthWindow, heightWindow, tm, 0, 2 )); }
-	if (weaponLvl == 2) { bullet.push_back(new MediumBullet("MediumBullet", p.getX(/*p*/) + (p.getSpriteWidth() / 4), p.getY(/*p*/), widthWindow, heightWindow, tm, 0, 2)); }
-	if (weaponLvl == 3) { bullet.push_back(new BigBullet("BigBullet", p.getX(/*p*/) + (p.getSpriteWidth() / 4), p.getY(/*p*/), widthWindow, heightWindow, tm, 0, 2)); }
+void GameManager::selectWeapon(int weaponLvl, Player & p) {
+	if (weaponLvl == 1) { bullet.push_back(new LaserBullet("LaserBullet", p.getX(/*p*/) + (p.getSpriteWidth() / 4), p.getY(/*p*/), widthWindow, heightWindow)); }
+	if (weaponLvl == 2) { bullet.push_back(new MediumBullet("MediumBullet", p.getX(/*p*/) + (p.getSpriteWidth() / 4), p.getY(/*p*/), widthWindow, heightWindow)); }
+	if (weaponLvl == 3) { bullet.push_back(new BigBullet("BigBullet", p.getX(/*p*/) + (p.getSpriteWidth() / 4), p.getY(/*p*/), widthWindow, heightWindow)); }
 }
 
 void GameManager::selectLvl(int lvl)
@@ -323,41 +317,114 @@ void GameManager::selectLvl(int lvl)
 
 	
 	if (lvl == 1) {
-		/*Image image;
-		image.loadFromFile("images/space1.png");*/
+		
 
-		while (x < 900) {
-			entities.push_back(new Eneme1("EasyEnemy", x, y, widthWindow, heightWindow, tm));
+		while (x < 800) {
+			entities.push_back(new EasyEnemy("EasyEnemy", x, y, widthWindow, heightWindow));
 			x = x + 100;
 		}
 	}
 
 	if (lvl == 2) {
-		/*Image image;
-		image.loadFromFile("images/space2.png");*/
-		while (x < 900) {
-			entities.push_back(new normalEneme("NormalEnemy", x, y, widthWindow, heightWindow, tm));
+		
+
+		while (x < 800) {
+			entities.push_back(new NormalEnemy("NormalEnemy", x, y, widthWindow, heightWindow));
 			x = x + 80;
 		}
 
 	}
 	if (lvl == 3) {
-		/*Image image;
-		image.loadFromFile("images/space3.png");*/
-		while (x < 900) {
-			entities.push_back(new hardEneme("HardEnemy", x, y, widthWindow, heightWindow, tm));
+		
+		while (x < 800) {
+			entities.push_back(new HardEnemy("HardEnemy", x, y, widthWindow, heightWindow));
 			x = x + 80;
+		}
+	}
+	if (lvl == 4) {
+		
+		while (x < 800) {
+			y = 100;
+			
+			entities.push_back(new HardEnemy("HardEnemy", x, y, widthWindow, heightWindow));
+
+			
+			entities.push_back(new EasyEnemy("EasyEnemy", x, y, widthWindow, heightWindow));
+
+			y = 200;
+
+			entities.push_back(new EasyEnemy("EasyEnemy", x, y, widthWindow, heightWindow));
+			x = x + 100;
+		}
+	}
+	if (lvl == 5) {
+	
+		while (x < 800) {
+			y = 100;
+			
+			entities.push_back(new HardEnemy("HardEnemy", x, y, widthWindow, heightWindow));
+			
+			entities.push_back(new NormalEnemy("NormalEnemy", x, y, widthWindow, heightWindow));
+
+			
+			entities.push_back(new EasyEnemy("EasyEnemy", x, y, widthWindow, heightWindow));
+
+			y = 200;
+
+			entities.push_back(new EasyEnemy("EasyEnemy", x, y, widthWindow, heightWindow));
+			x = x + 100;
 		}
 	}
 }
 
-void GameManager::startNewLvl() {
-	level++;
+
+
+void GameManager::gameRunning(int & Level) {//ф-ция перезагружает игру , если это необходимо
+	
+	if (play(Level)) // сюда попадаем либо из "перехода на след уровень"
+		//restartGame = false;
+		if (!restartGame){ 			 
+			gameRunning(level); //принимает с какого уровня начать игру}
+		}
+		else {			
+			clearAllContainer();
+			level = 1;
+			restartGame = false;
+
+			gameRunning(level);
+		}
+			
+			
+	
 }
 
-void GameManager::gameRunning(int Level) {//ф-ция перезагружает игру , если это необходимо
-	level = Level;
-	if (play(level)) { level++;  gameRunning(level); }//принимает с какого уровня начать игру
+void GameManager::draw(RenderWindow & window, Player & p) {
+	window.draw(tm.getBackgroundTexture()); // задний фон
+
+	for (it = bullet.begin(); it != bullet.end(); it++) {
+		window.draw((*it)->getSprite()); //рисуем entities объекты (сейчас это только враги)
+	}
+	//Бонусы
+	for (bt = bonus.begin(); bt != bonus.end(); bt++) {
+		window.draw((*bt)->getSprite()); //рисуем entities объекты (сейчас это только враги)
+	}
+	//Враги
+	for (et = entities.begin(); et != entities.end(); et++) {
+		window.draw((*et)->getSprite());
+	}
+
+	for (ebt = ebullet.begin(); ebt != ebullet.end(); ebt++) {
+		window.draw((*ebt)->getSprite()); //рисуем entities объекты (сейчас это только враги)
+	}
+
+	// обвноялем положение игрока и рисуем его
+
+	window.draw(p.getSprite());
+
+	// Устанавливаем информацию об игроке и выводим её
+	tm.setText(p);
+	window.draw(tm.getText());
+
 }
 
 

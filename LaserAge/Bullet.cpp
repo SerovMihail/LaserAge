@@ -5,22 +5,18 @@
 
 using namespace sf;
 
-Bullet::Bullet(String Name, float X, float Y, int W, int H, TextureManager & tm, int DX, int DY):GameObject(Name, X, Y, W, H, tm)
+Bullet::Bullet(String Name, float X, float Y, int W, int H):GameObject(Name, X, Y, W, H)
 {
-	
-	//texture.loadFromImage(tm.getDefaultImg());
-	//sprite.setTexture(texture);
-	//sprite.setScale(0.5, 0.5); // масштаб
+	dy = 0.25; // скорость для всех пуль
+	speed = dy;
 
-	spriteHeight = sprite.getTextureRect().height; // Высота спрайта
-	spriteWidth = sprite.getTextureRect().width; // Ширина спрайта	
-
-	speed = DY;
+	//spriteHeight = sprite.getTextureRect().height; // Высота спрайта
+	//spriteWidth = sprite.getTextureRect().width; // Ширина спрайта	
 	
 }
 
 void Bullet::update(float time) {
-	y -= speed;
+	y -= speed*time;
 	
 	sprite.setPosition(x, y);
 }

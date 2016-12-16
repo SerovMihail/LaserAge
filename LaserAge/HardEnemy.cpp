@@ -1,12 +1,8 @@
-#include "hardEneme.h"
+#include "HardEnemy.h"
 #include <SFML/Graphics.hpp>
-#include <SFML/Graphics.hpp>
-#include <iostream>
-#include <list> 
-#include <algorithm> 
-#include "Entity.h"
+#include "TextureManager.h"
 
-hardEneme::hardEneme(String Name, float X, float Y, int W, int H, TextureManager & tm) :Enyme(Name, X, Y, W, H, tm) {
+HardEnemy::HardEnemy(String Name, float X, float Y, int W, int H) :Enyme(Name, X, Y, W, H) {
 	x = X;
 	y = Y;
 	dx = 0.4;
@@ -22,10 +18,10 @@ hardEneme::hardEneme(String Name, float X, float Y, int W, int H, TextureManager
 
 	
 }
-void hardEneme::dv() {
-	x = x + dx;
-	y = y + dy;
-	if (x >= 960 || x <= 40) {
+void HardEnemy::dv(float time) {
+	x += dx*time;
+	y += dy*time;
+	if (x >= 900 || x <= 60) {
 		//t1 = 0;
 		dx = dx*(-1);
 		dy = dy*(-1);

@@ -8,7 +8,7 @@
 using namespace sf;
 
 //class GameObject;
-class TextureManager;
+//class TextureManager;
 class Player:public GameObject {
 protected:
 	enum { left, right, up, down } dir;//добавляем тип перечисления - состояние объекта( его направление )
@@ -16,10 +16,9 @@ protected:
 	int bulletLvl;
 	bool win;
 
-public:
-	
+public:	
 
-	Player(String Name, float X, float Y, int W, int H, TextureManager & tm, int Health);
+	Player(String Name, float X, float Y, int W, int H, int Health);
 	
 	void update(float time); // привязка к времени
 
@@ -41,9 +40,10 @@ public:
 	void updateBullets(int lvl) { bulletLvl++; };
 	void damage(int damage) { health = health - damage; }
 	void control();
-	void addScore(int score);
-		
+	void addScore(int score);	
 
 	~Player();
+
+	void newGame();
 
 };

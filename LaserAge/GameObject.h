@@ -23,12 +23,13 @@ protected:
 	String name;	
 
 public:
-	GameObject(String Name, float X, float Y, int W, int H, TextureManager & tm);
+	//GameObject(String Name, float X, float Y, int W, int H, TextureManager & tm);
 	
 	FloatRect getRect() const {	return FloatRect(x, y, spriteWidth, spriteHeight);	}
 	Sprite getSprite() const {	return sprite;  }
 	int getSpriteHeight() const { return spriteHeight; }
 	int getSpriteWidth() const { return spriteWidth; }	
+	GameObject(String Name, float X, float Y, int W, int H);
 	void update(float time);
 	//float& getX(GameObject & p) const { return p.x; }
 	float getX() const { return x; }

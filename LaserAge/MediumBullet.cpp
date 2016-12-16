@@ -3,7 +3,7 @@
 
 
 
-MediumBullet::MediumBullet(String Name, float X, float Y, int W, int H, TextureManager & tm, int DX, int DY) :Bullet(Name, X, Y, W, H, tm, DX, DY)
+MediumBullet::MediumBullet(String Name, float X, float Y, int W, int H) :Bullet(Name, X, Y, W, H)
 {
 	texture.loadFromImage(tm.getBulletImg(2));
 	sprite.setTexture(texture);	

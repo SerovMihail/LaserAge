@@ -12,7 +12,7 @@
 #include <vector>
 #include <ctime>
 #include "GameManager.h"
-#include "Enyme1.h"
+#include "Enemy.h"
 
 using namespace sf;
 
@@ -25,8 +25,9 @@ private:
 
 	int widthWindow, heightWindow;
 
-	int level;
+	int level, maxLvl;
 	bool next;
+	bool restartGame;
 	//int score, health, life;
 	
 	int gameTime; // Время в игре в секундах
@@ -46,31 +47,28 @@ private:
 	std::list<Bullet*>::iterator ebt;//итератор чтобы проходить по эл-там списка
 
 public:
-	
-	
 
-	GameManager();
+	GameManager();	
 
-	bool play(int level);
+	bool play(int & Level);
+
+	void clearAllContainer();
 	
-	//void update(Player & p);
-	void update(Player & p, TextureManager & tm);
+	void update(Player & p);
 	// Обновить координаты, посмотреть столкновения, выход на пределы экрана
 	void tickTime(); // Тик таймера
-	void runContainer(float spawntime, TextureManager & tm);
 
-	void selectWeapon(int weaponLvl, TextureManager & tm, Player & p);
-	void selectLvl(int lvl);
+	void runContainer(float spawntime);	
 
-	void startNewLvl();
+	void selectWeapon(int weaponLvl, Player & p);
 
-	void gameRunning(int Level);
+	void selectLvl(int lvl);	
 
-	//void gameRunning();
+	void gameRunning(int & Level);
 
-	//void gameRunning(int level);
+	void draw(RenderWindow & window, Player & p);
 
-	//void gameRunning(int & level);
+	
 
 	~GameManager();
 };

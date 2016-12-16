@@ -1,0 +1,25 @@
+
+							<16.12.2016>
+
+			О разработанных классах. Всего используются в игре 17 классов, 1 main.
+
+				Список классов:                  Был разработан:
+					BigBullet			Бабенышев Илья
+					Bullet				Бабенышев Илья
+					Container			  Алферова Арина
+					ContainerBullet			  Алферова Арина
+					ContainerLife			  Алферова Арина
+					EasyEnemy			    Александер Каряпин
+					Enemy				    Александер Каряпин
+					EnemyBullet			      Серов Михаил
+					GameManager			      Серов Михаил
+					GameObject			      Серов Михаил
+					HardEnemy			    Александер Каряпин
+					LaserBullet			Бабенышев Илья
+					MediumBullet			Бабенышев Илья
+					Menu				      Серов Михаил
+					NormalEnemy			    Александер Каряпин
+					Player				      Серов Михаил
+					TextureManager			      Серов Михаил
+
+					main
