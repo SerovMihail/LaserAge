@@ -8,7 +8,7 @@
 Player::Player(String Name, float X, float Y, int W, int H, int Health):GameObject(Name, X, Y, W, H)
 {
 	texture.loadFromImage(tm.getPlayerImg());
-	//texture.loadFromFile("images/orangePlayer.png");
+	//txture.loadFromFile("images/orangePlayer.png");
 	sprite.setTexture(texture);
 	sprite.setScale(0.5, 0.5); // масштаб
 
@@ -20,6 +20,7 @@ Player::Player(String Name, float X, float Y, int W, int H, int Health):GameObje
 	life = 1;
 	health = Health;
 	win = false;
+	fullHealth = Health;
 }
 
 Player::~Player()
@@ -35,7 +36,7 @@ void Player::newGame() {
 	bulletLvl = 1;
 	playerScore = 0;
 	life = 1;
-	health = 100;
+	health = fullHealth;
 	
 
 }
@@ -77,7 +78,7 @@ void Player::update(float time)
 					}
 	}
 
-	if (health <= 0) { life--; health = 100; };
+	if (health <= 0) { life--; health = fullHealth; };
 	if (life <= 0) { iAmAlive = false;	}
 
 	speed = 0; // Останавливаем движение корабля

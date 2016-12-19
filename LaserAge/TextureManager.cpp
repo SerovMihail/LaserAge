@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include "TextureManager.h"
 #include "Player.h"
+
 #include <iostream> 
 #include <sstream>
 
@@ -46,11 +47,11 @@ TextureManager::TextureManager(int widthWindow, int heightWindow)
 	title.setPosition(0, 0);
 
 	// Авторы . Саша, Арина, Илья добавьте себя сами в этот список, если вы читаете это :)))
-	textAbout.setString("Created by: \n\tSerov Mihail\n\tAlexander Karyapin\n\tArina Alferova\n\tBabenushev Ilya \nStudents of group 21317 \n\n\n 'ESC' return to menu");
-	textAbout.setFont(font);
-	textAbout.setCharacterSize(30);
-	textAbout.setStyle(Text::Bold | Text::Underlined);//жирный и подче
-	textAbout.setPosition(widthWindow / 4, heightWindow / 4);//задаем позицию текста, центр камеры
+	txtAbout.setString("Created by: \n\tSerov Mihail\n\tAlxander Karyapin\n\tArina Alferova\n\tBabenushev Ilya \nStudents of group 21317 \n\n\n 'ESC' return to menu");
+	txtAbout.setFont(font);
+	txtAbout.setCharacterSize(30);
+	txtAbout.setStyle(Text::Bold | Text::Underlined);//жирный и подче
+	txtAbout.setPosition(widthWindow / 4, heightWindow / 4);//задаем позицию текста, центр камеры
 	
 
 	// Задний фон
@@ -91,7 +92,7 @@ void TextureManager::setButtonAbout(int x, int y, Color color) {
 	menu2.setColor(Color::Color(color));
 }
 
-void TextureManager::setButtonExit(int x, int y, Color color) {
+void TextureManager::setButtonxit(int x, int y, Color color) {
 	menu3.setPosition(x, y);
 	menu3.setColor(Color::Color(color));
 }
@@ -144,7 +145,7 @@ void TextureManager::setText(Player & p) {
 	playerLifeString << p.getLife(p);
 	playerScoreString << p.getScore(p);
 
-	//text.setString("Score:" + playerScoreString.str()
+	//txt.setString("Score:" + playerScoreString.str()
 	//	+ "\nHealth: " + playerHealthString.str()
 	//	+ "\nSeconds in game: " + gameTimeString.str()
 	//	+ "\nLife: " + playerLifeString.str()

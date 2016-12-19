@@ -3,7 +3,7 @@
 
 using namespace sf;
 
-class TextureManager;
+class TxtureManager;
 //// Базовый класс ///////
 GameObject::GameObject(String Name, float X, float Y,  int W, int H)
 {	// Каждый объект в игре будет обладать рядом свойств. Основные, на которых будет основываться все объекты игры мы
@@ -24,12 +24,12 @@ GameObject::GameObject(String Name, float X, float Y,  int W, int H)
 	name = Name; 
 
 	// Исп в наследуемых классах
-	//texture.loadFromImage(tm.getDefaultImg());
-	//sprite.setTexture(texture);
+	//txture.loadFromImage(tm.getDefaultImg());
+	//sprite.setTxture(txture);
 	//sprite.setScale(0.5, 0.5); // масштаб
 
-	//spriteHeight = sprite.getTextureRect().height; // Высота спрайта
-	//spriteWidth = sprite.getTextureRect().width; // Ширина спрайта	
+	//spriteHeight = sprite.getTxtureRect().height; // Высота спрайта
+	//spriteWidth = sprite.getTxtureRect().width; // Ширина спрайта	
 
 	sprite.setPosition(x, y);
 }

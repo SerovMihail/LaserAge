@@ -14,7 +14,7 @@ private:
 	Image laser, normalLaser, bigLaser; // Пули игрока 
 	Image ContainerLife, ContainerBullet; // Контейнеры
 	Image enemyLaser; // Пули врага 
-	Text text, title, textAbout, gameOver, youWin; // Все текстовые переменные в игре
+	Text text, title, txtAbout, gameOver, youWin; // Все текстовые переменные в игре
 	Texture menuTexture1, menuTexture2, menuTexture3, bg; // Текстуры меню
 	Sprite menu1, menu2, menu3, about, bgSprite; // спрайты меню
 
@@ -30,10 +30,10 @@ public:
 	// Всё что связано с меню
 	void setButtonStart(int widthWindow, int heightWindow, Color color);
 	void setButtonAbout(int x, int y, Color color);
-	void setButtonExit(int x, int y, Color color);
+	void setButtonxit(int x, int y, Color color);
 	Sprite getButtonStart() const { return menu1; }
 	Sprite getButtonAbout() const { return menu2; }
-	Sprite getButtonExit() const { return menu3; }
+	Sprite getButtonxit() const { return menu3; }
 
 	// Игровые текстуры
 	Sprite getBackgroundTexture() const { return bgSprite; }
@@ -50,10 +50,11 @@ public:
 	Text getTextGameOver() const {	return gameOver; };
 	Text getWinText() const {	return youWin;	};
 	Text getTitleText() const {	return title;	};
-	Text getTextAbout() const {	return textAbout;	};
+	Text getTextAbout() const {	return txtAbout;	};
 	Font getFont() const { return font; };
 
 	~TextureManager();
+	//TextureManager(int widthWindow, int heightWindow);
 };
 
 extern TextureManager tm;

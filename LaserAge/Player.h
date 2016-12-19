@@ -8,10 +8,11 @@
 using namespace sf;
 
 //class GameObject;
-//class TextureManager;
+//class TxtureManager;
 class Player:public GameObject {
 protected:
 	enum { left, right, up, down } dir;//добавляем тип перечисления - состояние объекта( его направление )
+	int fullHealth;
 	int health, playerScore, life; // показатели игрока
 	int bulletLvl;
 	bool win;

@@ -14,7 +14,7 @@ NormalEnemy::NormalEnemy(String Name, float X, float Y, int W, int H) :Enyme(Nam
 	y = Y;
 
 
-	dx = 0.3;
+	dx = 0.2;
 	dy = 0.3;
 
 	
@@ -27,15 +27,40 @@ NormalEnemy::NormalEnemy(String Name, float X, float Y, int W, int H) :Enyme(Nam
 	spriteWidth = sprite.getTextureRect().width; // Ширина спрайта	
 }
 void NormalEnemy::dv(float time) {
-	x = x + dx*time;
-	y = y + dy*time;
-	if (y >= 250 || y <= 50) {
+	
+	if (y >= 220 || y <= 30) {
 		dy = dy*(-1);
 	}
-	if (x >= 900 || x <= 60) {
-		//t1 = 0;
+	if (x >= 960 || x <= 40) {
+		
 		dx = dx*(-1);
 	}
+
+	x = x + dx*time;
+	y = y + dy*time;
+
+	while (x > 961)
+	{
+		x = 959;
+
+	}
+
+	while (x < 35) {
+		x = 39;
+	}
+
+	while (y > 225)
+	{
+		y = 219;
+
+	}
+
+	while (y < 25) {
+		y = 31;
+	}
+
+	
+
 	sprite.setPosition(x, y);
 }
 

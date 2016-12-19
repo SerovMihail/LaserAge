@@ -12,10 +12,7 @@ EasyEnemy::EasyEnemy(String Name, float X, float Y, int W, int H):Enyme(Name, X,
 {
 	x = X;
 	y = Y;
-
-
-	dx = 0.1;
-	
+	dx = 0.07;	
 		
 	texture.loadFromImage(tm.getEnemyImg(1));
 	sprite.setTexture(texture);
@@ -23,19 +20,32 @@ EasyEnemy::EasyEnemy(String Name, float X, float Y, int W, int H):Enyme(Name, X,
 
 	spriteHeight = sprite.getTextureRect().height; // Высота спрайта
 	spriteWidth = sprite.getTextureRect().width; // Ширина спрайта	
-	/*t.loadFromImage(image);
-	s.setTexture(t);
-	s.setScale(0.7, 0.7);
-	s.setPosition(x, y);*/
+	
 }
 void EasyEnemy::dv(float time) {
 
+	
+
+	if (x > 860 || x < 40) {
+		
+		dx = dx*(-1);
+	}
 
 	x = x + dx*time;
 
-	if (x >= 900 || x <= 60) {
-		dx = dx*(-1);
+
+	while (x > 865 )
+	{
+		//x = x - dx*time;	
+		x = 859;
 	}
+
+	while (x < 35) {
+		//x = x + dx*time;
+		x = 41;
+	}
+	
+
 	sprite.setPosition(x, y);
 }
 

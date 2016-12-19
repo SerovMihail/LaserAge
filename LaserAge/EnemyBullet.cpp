@@ -15,7 +15,7 @@ EnemyBullet::EnemyBullet(String Name, float X, float Y, int W, int H) :Bullet(Na
 	spriteHeight = sprite.getTextureRect().height; // Высота спрайта
 	spriteWidth = sprite.getTextureRect().width; // Ширина спрайта	
 
-	damage = 30;
+	damage = 10;
 }
 
 

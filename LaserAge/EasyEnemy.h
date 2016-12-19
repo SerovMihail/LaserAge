@@ -1,3 +1,4 @@
+#pragma once
 #include "Enemy.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics.hpp>
@@ -5,7 +6,7 @@
 #include <list> 
 #include <algorithm> 
 #include "TextureManager.h"
-#pragma once
+
 class EasyEnemy: public Enyme
 {
 public:

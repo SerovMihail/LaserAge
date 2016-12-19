@@ -16,7 +16,7 @@ Menu::Menu(RenderWindow & window, int widthWindow, int heightWindow)
 	{
 		tm.setButtonStart(widthWindow / 2.5, heightWindow * 0.4, Color::White);
 		tm.setButtonAbout(widthWindow / 2.5, heightWindow * 0.5, Color::White);
-		tm.setButtonExit(widthWindow / 2.5, heightWindow * 0.6, Color::White);
+		tm.setButtonxit(widthWindow / 2.5, heightWindow * 0.6, Color::White);
 
 		menuNum = 0;
 		window.clear(Color(186, 73, 255));
@@ -24,7 +24,7 @@ Menu::Menu(RenderWindow & window, int widthWindow, int heightWindow)
 
 		if (IntRect(tm.getButtonStart().getPosition().x, tm.getButtonStart().getPosition().y, tm.getButtonStart().getTextureRect().width, tm.getButtonStart().getTextureRect().height).contains(Mouse::getPosition(window))) { tm.setButtonStart(widthWindow / 2.5, heightWindow * 0.4, Color::Color(255, 113, 69)); menuNum = 1; }
 		if (IntRect(tm.getButtonAbout().getPosition().x, tm.getButtonAbout().getPosition().y, tm.getButtonAbout().getTextureRect().width, tm.getButtonAbout().getTextureRect().height).contains(Mouse::getPosition(window))) { tm.setButtonAbout(widthWindow / 2.5, heightWindow * 0.5, Color::Color(255, 113, 69)); menuNum = 2; }
-		if (IntRect(tm.getButtonExit().getPosition().x, tm.getButtonExit().getPosition().y, tm.getButtonExit().getTextureRect().width, tm.getButtonExit().getTextureRect().height).contains(Mouse::getPosition(window))) { tm.setButtonExit(widthWindow / 2.5, heightWindow * 0.6, Color::Color(255, 113, 69)); menuNum = 3; }
+		if (IntRect(tm.getButtonxit().getPosition().x, tm.getButtonxit().getPosition().y, tm.getButtonxit().getTextureRect().width, tm.getButtonxit().getTextureRect().height).contains(Mouse::getPosition(window))) { tm.setButtonxit(widthWindow / 2.5, heightWindow * 0.6, Color::Color(255, 113, 69)); menuNum = 3; }
 
 		if (Mouse::isButtonPressed(Mouse::Left))
 		{
@@ -39,7 +39,7 @@ Menu::Menu(RenderWindow & window, int widthWindow, int heightWindow)
 		window.draw(tm.getTitleText());
 		window.draw(tm.getButtonStart());
 		window.draw(tm.getButtonAbout());
-		window.draw(tm.getButtonExit());
+		window.draw(tm.getButtonxit());
 		window.display();
 	}
 	

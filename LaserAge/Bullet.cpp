@@ -10,8 +10,8 @@ Bullet::Bullet(String Name, float X, float Y, int W, int H):GameObject(Name, X, 
 	dy = 0.25; // скорость для всех пуль
 	speed = dy;
 
-	//spriteHeight = sprite.getTextureRect().height; // Высота спрайта
-	//spriteWidth = sprite.getTextureRect().width; // Ширина спрайта	
+	//spriteHeight = sprite.getTxtureRect().height; // Высота спрайта
+	//spriteWidth = sprite.getTxtureRect().width; // Ширина спрайта	
 	
 }
 

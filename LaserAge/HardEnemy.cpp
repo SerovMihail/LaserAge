@@ -19,15 +19,42 @@ HardEnemy::HardEnemy(String Name, float X, float Y, int W, int H) :Enyme(Name, X
 	
 }
 void HardEnemy::dv(float time) {
+	
+	if (x >= 960 || x <= 60) {
+		
+		dx = dx*(-1);
+		//dy = dy*(-1);
+	}
+	if (y >= 250 || y <= 20 ){
+		dy = dy*(-1);
+	}
+
 	x += dx*time;
 	y += dy*time;
-	if (x >= 900 || x <= 60) {
-		//t1 = 0;
-		dx = dx*(-1);
-		dy = dy*(-1);
+
+	while (x > 965)
+	{
+		//x = x - dx*time;
+		x = 959;
 	}
-	if (y>=250){
-		dy = dy*(-1);
+
+	while (x < 55) {
+		//x = x + dx*time;
+		x = 61;
 	}
+
+	while (y > 255)
+	{
+		//y = y - dy*time;
+		y = 249;
+	}
+
+	while (y < 15) {
+		//y = y + dy*time;
+		y = 21;
+	}
+
+	
+
 	sprite.setPosition(x, y);
 }

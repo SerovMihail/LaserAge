@@ -1,11 +1,11 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-//#include "TextureManager.h"
+//#include "TxtureManager.h"
 
 
 using namespace sf;
 
-class TextureManager;
+class TxtureManager;
 //// Базовый класс ///////
 class GameObject
 {
@@ -23,7 +23,7 @@ protected:
 	String name;	
 
 public:
-	//GameObject(String Name, float X, float Y, int W, int H, TextureManager & tm);
+	//GameObject(String Name, float X, float Y, int W, int H, TxtureManager & tm);
 	
 	FloatRect getRect() const {	return FloatRect(x, y, spriteWidth, spriteHeight);	}
 	Sprite getSprite() const {	return sprite;  }

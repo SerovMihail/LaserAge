@@ -105,11 +105,11 @@
       <FileName>Player.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TextureManager" Collapsed="true">
+  <Class Name="TxtureManager" Collapsed="true">
     <Position X="24.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CBKBIASAwBgAASMAFISFGEiIRQEIAIIJgAAEBcZBAKA=</HashCode>
-      <FileName>TextureManager.h</FileName>
+      <FileName>TxtureManager.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="NormalEnemy" Collapsed="true">

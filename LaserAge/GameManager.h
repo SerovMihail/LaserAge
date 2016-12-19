@@ -28,6 +28,7 @@ private:
 	int level, maxLvl;
 	bool next;
 	bool restartGame;
+	float ex, ey;
 	//int score, health, life;
 	
 	int gameTime; // Время в игре в секундах

@@ -14,12 +14,12 @@ using namespace sf;
 
 Enyme::Enyme(String Name, float X, float Y, int W, int H) :GameObject(Name, X, Y, W, H) {
 	
-	/*texture.loadFromImage(tm.getEnemyImg(1));
-	sprite.setTexture(texture);*/
+	/*txture.loadFromImage(tm.getEnemyImg(1));
+	sprite.setTxture(txture);*/
 	//sprite.setScale(0.5, 0.5); // масштаб
 
-	//spriteHeight = sprite.getTextureRect().height; // Высота спрайта
-	//spriteWidth = sprite.getTextureRect().width; // Ширина спрайта	
+	//spriteHeight = sprite.getTxtureRect().height; // Высота спрайта
+	//spriteWidth = sprite.getTxtureRect().width; // Ширина спрайта	
 	
 
 	//speed = 0; dx = 0; dy = 0;
