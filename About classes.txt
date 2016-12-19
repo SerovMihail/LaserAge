@@ -1,25 +1,25 @@
 
 							<16.12.2016>
 
-			О разработанных классах. Всего используются в игре 17 классов, 1 main.
+			About developers. LaserAge has total 17 classes, 1 main.
 
-				Список классов:                  Был разработан:
-					BigBullet			Бабенышев Илья
-					Bullet				Бабенышев Илья
-					Container			  Алферова Арина
-					ContainerBullet			  Алферова Арина
-					ContainerLife			  Алферова Арина
-					EasyEnemy			    Александер Каряпин
-					Enemy				    Александер Каряпин
-					EnemyBullet			      Серов Михаил
-					GameManager			      Серов Михаил
-					GameObject			      Серов Михаил
-					HardEnemy			    Александер Каряпин
-					LaserBullet			Бабенышев Илья
-					MediumBullet			Бабенышев Илья
-					Menu				      Серов Михаил
-					NormalEnemy			    Александер Каряпин
-					Player				      Серов Михаил
-					TextureManager			      Серов Михаил
+				List of classes:                  Developer:
+					BigBullet			Babenishev Ilya
+					Bullet				Babenishev Ilya
+					Container			  Alferova Arina
+					ContainerBullet			  Alferova Arina
+					ContainerLife			  Alferova Arina
+					EasyEnemy			    Alexander Karyapin
+					Enemy				    Alexander Karyapin
+					EnemyBullet			      Serov Mihail
+					GameManager			      Serov Mihail
+					GameObject			      Serov Mihail
+					HardEnemy			    Alexander Karyapin
+					LaserBullet			Babenishev Ilya
+					MediumBullet			Babenishev Ilya
+					Menu				      Serov Mihail
+					NormalEnemy			    Alexander Karyapin
+					Player				      Serov Mihail
+					TextureManager			      Serov Mihail
 
 					main
