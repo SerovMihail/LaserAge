@@ -65,21 +65,26 @@ bool GameManager::play(int & Level)
 			{
 				if (event.type == Event::Closed)
 					window.close();
-				if (event.key.code == sf::Keyboard::Space)
-				{
-					selectWeapon(p.getBulletLvl(), p); // Аргументы: Уровень пуль - определяет исп класс. тм - хранит имг. р - для координат			
 
-				}	
-				if (event.key.code == sf::Keyboard::Tab)
+				if (event.type == sf::Event::KeyPressed)  // Выстрел производится только по нажатию
 				{
-					std::cout << level;
-					bullet.clear();
-					ebullet.clear();
-					level++;
-					return true; // попадаем в gameRunning			
+					if (event.key.code == sf::Keyboard::Space)
+					{
+						window.setKeyRepeatEnabled(false);  // При зажатой клавише действие выполняется только один раз
+						selectWeapon(p.getBulletLvl(), p); // Аргументы: Уровень пуль - определяет исп класс. тм - хранит имг. р - для координат			
+					}
+				}
+			
+					if (event.key.code == sf::Keyboard::Tab)
+					{   
+						std::cout << level;
+						bullet.clear();
+						ebullet.clear();
+						level++;
+						return true; // попадаем в gameRunning			
 
 				}
-
+	
 				
 			}
 
