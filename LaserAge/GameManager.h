@@ -41,8 +41,8 @@ private:
 	std::list<Container*>  bonus;//список бонусов
 	std::list<Container*>::iterator bt;//итератор чтобы проходить по эл-там списка
 
-	std::list<Enyme*>  entities;//создаю список, сюда буду кидать объекты врагов.
-	std::list<Enyme*>::iterator et;//итератор чтобы проходить по эл-там списка
+	std::list<Enemy*>  entities;//создаю список, сюда буду кидать объекты врагов.
+	std::list<Enemy*>::iterator et;//итератор чтобы проходить по эл-там списка
 
 	std::list<Bullet*>  ebullet;//создаю список, сюда буду кидать объекты врагов.
 	std::list<Bullet*>::iterator ebt;//итератор чтобы проходить по эл-там списка

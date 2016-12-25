@@ -8,12 +8,12 @@
 
 using namespace sf;
 
-class NormalEnemy:public Enyme
+class NormalEnemy:public Enemy
 {
 public:
 	
 	NormalEnemy(String Name, float X, float Y, int W, int H);
 
-	void NormalEnemy::dv(float time);
+	void NormalEnemy::update(float time, int width, int heigth);
 };
 

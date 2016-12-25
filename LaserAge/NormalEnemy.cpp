@@ -9,7 +9,7 @@
 
 using namespace sf;
 
-NormalEnemy::NormalEnemy(String Name, float X, float Y, int W, int H) :Enyme(Name, X, Y, W, H) {
+NormalEnemy::NormalEnemy(String Name, float X, float Y, int W, int H) :Enemy(Name, X, Y, W, H) {
 	x = X;
 	y = Y;
 
@@ -26,12 +26,12 @@ NormalEnemy::NormalEnemy(String Name, float X, float Y, int W, int H) :Enyme(Nam
 	spriteHeight = sprite.getTextureRect().height; // Высота спрайта
 	spriteWidth = sprite.getTextureRect().width; // Ширина спрайта	
 }
-void NormalEnemy::dv(float time) {
+void NormalEnemy::update(float time, int width, int heigth) {
 	
-	if (y >= 220 || y <= 30) {
+	if (y >= heigth-280 || y <= (heigth-(heigth-30))) {
 		dy = dy*(-1);
 	}
-	if (x >= 960 || x <= 40) {
+	if (x >= (width-40) || x <=(width-(width- 40))) {
 		
 		dx = dx*(-1);
 	}
@@ -39,25 +39,25 @@ void NormalEnemy::dv(float time) {
 	x = x + dx*time;
 	y = y + dy*time;
 
-	while (x > 961)
-	{
-		x = 959;
+	//while (x > 961)
+	//{
+	//	x = 959;
 
-	}
+	//}
 
-	while (x < 35) {
-		x = 39;
-	}
+	//while (x < 35) {
+	//	x = 39;
+	//}
 
-	while (y > 225)
-	{
-		y = 219;
+	//while (y > 225)
+	//{
+	//	y = 219;
 
-	}
+	//}
 
-	while (y < 25) {
-		y = 31;
-	}
+	//while (y < 25) {
+	//	y = 31;
+	//}
 
 	
 

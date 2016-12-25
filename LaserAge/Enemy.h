@@ -5,17 +5,17 @@
 using namespace sf;
 
 class GameObject;
-class Enyme :public GameObject
+class Enemy :public GameObject
 {
 
 public:
 	
-	virtual void dv(float time)=0;
+	virtual void update(float time, int width, int heigth)=0;
 
 
 	
 
-	Enyme(String Name, float X, float Y, int W, int H);
+	Enemy(String Name, float X, float Y, int W, int H);
 
 };
 

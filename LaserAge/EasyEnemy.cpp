@@ -3,12 +3,12 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include <list> 
+#include "GameManager.h"
 #include <algorithm> 
 #include "TextureManager.h"
+#include "Bullet.h"
 
-
-EasyEnemy::EasyEnemy(String Name, float X, float Y, int W, int H):Enyme(Name, X, Y, W, H)
+EasyEnemy::EasyEnemy(String Name, float X, float Y, int W, int H): Enemy(Name, X, Y, W, H)
 {
 	x = X;
 	y = Y;
@@ -20,30 +20,30 @@ EasyEnemy::EasyEnemy(String Name, float X, float Y, int W, int H):Enyme(Name, X,
 
 	spriteHeight = sprite.getTextureRect().height; // Высота спрайта
 	spriteWidth = sprite.getTextureRect().width; // Ширина спрайта	
+
 	
 }
-void EasyEnemy::dv(float time) {
+void EasyEnemy::update(float time, int width, int heigth) {
 
 	
 
-	if (x > 860 || x < 40) {
+	if (x > (width-140) || x < (width-(width-40))) {
 		
 		dx = dx*(-1);
 	}
 
 	x = x + dx*time;
+	
+	//while (x > 865 )
+	//{
+	//	//x = x - dx*time;	
+	//	x = 859;
+	//}
 
-
-	while (x > 865 )
-	{
-		//x = x - dx*time;	
-		x = 859;
-	}
-
-	while (x < 35) {
-		//x = x + dx*time;
-		x = 41;
-	}
+	//while (x < 35) {
+	//	//x = x + dx*time;
+	//	x = 41;
+	//}
 	
 
 	sprite.setPosition(x, y);

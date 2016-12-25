@@ -12,7 +12,7 @@
 
 using namespace sf;
 
-Enyme::Enyme(String Name, float X, float Y, int W, int H) :GameObject(Name, X, Y, W, H) {
+Enemy::Enemy(String Name, float X, float Y, int W, int H) :GameObject(Name, X, Y, W, H) {
 	
 	/*txture.loadFromImage(tm.getEnemyImg(1));
 	sprite.setTxture(txture);*/

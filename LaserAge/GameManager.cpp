@@ -43,10 +43,10 @@ GameManager::GameManager()
 
 
 bool GameManager::play(int & Level)
-{
+{ 
 
 	RenderWindow window(VideoMode(widthWindow, heightWindow), "LaserAge");
-
+	window.setFramerateLimit(120);//Частота кадров
 	Player static p("Player", (widthWindow / 2), (heightWindow * 0.8), widthWindow, heightWindow, 200);
 
 	selectLvl(level); // Загрузка актуальных для уровня врагов
@@ -285,7 +285,7 @@ void GameManager::update(Player & p) {
 	////// ВРАГИ. ИХ ОБНОВЛЕНИЕ //////
 	for (et = entities.begin(); et != entities.end(); et++) {
 		
-		(*et)->dv(fpsTime);
+		(*et)->update(fpsTime, widthWindow, heightWindow);
 		if ((spawnTime > 2000 && spawnTime < 2005) || (spawnTime > 5000 && spawnTime < 5005) || (spawnTime > 8000 && spawnTime < 8005)) {
 			ebullet.push_back(new EnemyBullet("enemyLaser", (*et)->getX(), (*et)->getY(), widthWindow, heightWindow));
 		}
