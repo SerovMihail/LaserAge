@@ -22,6 +22,7 @@
 #include "EasyEnemy.h"
 #include "NormalEnemy.h"
 #include "EnemyBullet.h"
+#include <SFML/Audio.hpp>
 
 using namespace sf;
 
@@ -44,7 +45,7 @@ GameManager::GameManager()
 
 bool GameManager::play(int & Level)
 { 
-
+	
 	RenderWindow window(VideoMode(widthWindow, heightWindow), "LaserAge");
 	window.setFramerateLimit(120);//Частота кадров
 	Player static p("Player", (widthWindow / 2), (heightWindow * 0.8), widthWindow, heightWindow, 200);

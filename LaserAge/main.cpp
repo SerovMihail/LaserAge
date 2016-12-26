@@ -7,6 +7,7 @@ int main()
 	sf::Music music;
 	music.openFromFile("images/8bit.ogg");
 	music.play();
+	music.setLoop(true);
 	int startLvl = 1;
 	laserAge.gameRunning(startLvl);	
 

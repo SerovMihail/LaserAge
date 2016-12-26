@@ -47,6 +47,7 @@ TextureManager::TextureManager(int widthWindow, int heightWindow)
 	title.setPosition(0, 0);
 
 	// Авторы . Саша, Арина, Илья добавьте себя сами в этот список, если вы читаете это :)))
+	
 	txtAbout.setString("Created by: \n\tSerov Mihail\n\tAlxander Karyapin\n\tArina Alferova\n\tBabenushev Ilya \nStudents of group 21317 \n\n\n 'ESC' return to menu");
 	txtAbout.setFont(font);
 	txtAbout.setCharacterSize(30);

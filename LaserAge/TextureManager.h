@@ -14,6 +14,7 @@ private:
 	Image laser, normalLaser, bigLaser; // Пули игрока 
 	Image ContainerLife, ContainerBullet; // Контейнеры
 	Image enemyLaser; // Пули врага 
+	
 	Text text, title, txtAbout, gameOver, youWin; // Все текстовые переменные в игре
 	Texture menuTexture1, menuTexture2, menuTexture3, bg; // Текстуры меню
 	Sprite menu1, menu2, menu3, about, bgSprite; // спрайты меню
