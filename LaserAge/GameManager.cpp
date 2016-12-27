@@ -45,7 +45,6 @@ GameManager::GameManager()
 
 bool GameManager::play(int & Level)
 { 
-	
 	RenderWindow window(VideoMode(widthWindow, heightWindow), "LaserAge");
 	window.setFramerateLimit(120);//Частота кадров
 	Player static p("Player", (widthWindow / 2), (heightWindow * 0.8), widthWindow, heightWindow, 200);
@@ -141,6 +140,7 @@ bool GameManager::play(int & Level)
 				window.draw(tm.getWinText());
 			}
 			else {
+			
 				window.draw(tm.getTextGameOver());
 			}
 

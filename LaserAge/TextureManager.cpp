@@ -85,17 +85,17 @@ TextureManager::TextureManager(int widthWindow, int heightWindow)
 
 void TextureManager::setButtonStart(int x, int y, Color color) {
 	menu1.setPosition(x, y);
-	menu1.setColor(Color::Color(color));
+	menu1.setColor(Color(color));
 }
 
 void TextureManager::setButtonAbout(int x, int y, Color color) {
 	menu2.setPosition(x, y);
-	menu2.setColor(Color::Color(color));
+	menu2.setColor(Color(color));
 }
 
 void TextureManager::setButtonxit(int x, int y, Color color) {
 	menu3.setPosition(x, y);
-	menu3.setColor(Color::Color(color));
+	menu3.setColor(Color(color));
 }
 
 Image TextureManager::getBulletImg(int lvl) const {
