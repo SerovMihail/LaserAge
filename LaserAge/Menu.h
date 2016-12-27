@@ -10,8 +10,13 @@ private:
 	bool isMenu;
 	int menuNum;
 
+	float xButtonStart, yButtonStart, widthButtonStart, heightButtonStart;
+	float xButtonAbout, yButtonAbout, widthButtonAbout, heightButtonAbout;
+	float xButtonExit, yButtonExit, widthButtonExit, heightButtonExit;
+
 public:	
-	Menu(RenderWindow & window, int widthWindow, int heightWindow);
+	Menu(int widthWindow, int heightWindow);
+	void Display(RenderWindow & window);
 	~Menu();
 };
 

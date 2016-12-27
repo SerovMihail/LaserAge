@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream> 
 #include <sstream>
+#include "Menu.h"
 #include "Player.h"
 #include "Bullet.h"
 #include "GameObject.h"
@@ -20,6 +21,10 @@ using namespace sf;
 
 class GameManager	{
 private:	
+	// ¬ключаемые файлы
+	Menu m;
+	Player p;
+
 	Window window;
 	Clock spawnTimeClock, clock, gameTimeClock;
 
@@ -29,6 +34,7 @@ private:
 	bool next;
 	bool restartGame;
 	float ex, ey;
+	bool runL, runB;
 	//int score, health, life;
 	
 	int gameTime; // ¬рем€ в игре в секундах
@@ -48,8 +54,7 @@ private:
 	std::list<Bullet*>::iterator ebt;//итератор чтобы проходить по эл-там списка
 
 public:
-
-	GameManager();	
+	GameManager(int W, int H);
 
 	bool play(int & Level);
 

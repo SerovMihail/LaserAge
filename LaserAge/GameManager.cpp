@@ -26,7 +26,7 @@
 
 using namespace sf;
 
-GameManager::GameManager()
+GameManager::GameManager(int W, int H) : m(W, H), p("Player", (W / 2), (H * 0.8), W, H, 200)
 {
 	widthWindow = 1000; // ширина экрана
 	heightWindow = 500; // высота экрана
@@ -35,7 +35,10 @@ GameManager::GameManager()
 	fpsTime = 0.0; // Таймер для отвязки к быстродействию процессора
 	level = 1; // Начинаем с первого уровня 
 	restartGame = false;
-	maxLvl = 10; // Всего 3 уровня
+	maxLvl = 10; // Всего 11 уровней
+	runB = false;
+	runL = true;
+
 	ex = 0;
 	ey = 0;
 	
@@ -48,12 +51,12 @@ bool GameManager::play(int & Level)
 	
 	RenderWindow window(VideoMode(widthWindow, heightWindow), "LaserAge");
 	window.setFramerateLimit(120);//Частота кадров
-	Player static p("Player", (widthWindow / 2), (heightWindow * 0.8), widthWindow, heightWindow, 200);
+	
 
 	selectLvl(level); // Загрузка актуальных для уровня врагов
 
 	if (level == 1) { // Только при начальной загрузке должен высвечиваться экран меню		
-		Menu m(window, widthWindow, heightWindow);		
+		m.Display(window);
 	}
 
 	
@@ -309,17 +312,20 @@ void GameManager::tickTime() {
 
 void GameManager::runContainer(float spawntime) {
 	// бонусы
-	if (spawnTime == 5000)  {
+	if (spawnTime > 9000 && runB == true) {
 		bonus.push_back(new ContainerBullet("Bullet", rand() % widthWindow, 0, widthWindow, heightWindow));
-
-	}
-	if (spawnTime == 10000) {
-		bonus.push_back(new ContainerLife("Life", rand() % widthWindow, 0, widthWindow, heightWindow));
-
-	}
-
-	if (spawnTime > 10000) {
+		runB = false;
+		runL = true;
 		spawnTimeClock.restart();
+		return;
+
+	}
+	if (spawnTime > 9000 && runL == true) {
+		bonus.push_back(new ContainerLife("Life", rand() % widthWindow, 0, widthWindow, heightWindow));
+		runB = true;
+		runL = false;
+		spawnTimeClock.restart();
+		return;
 	}
 }
 
@@ -344,7 +350,7 @@ void GameManager::selectLvl(int lvl)
 		while (ex < 700) {
 			entities.push_back(new EasyEnemy("EasyEnemy", ex, ey, widthWindow, heightWindow));
 			ex = ex + 100;
-			std::cout << "ex: " << ex << "\n" << "ey: " << ey << "\n";
+			//std::cout << "ex: " << ex << "\n" << "ey: " << ey << "\n";
 		}
 		
 		

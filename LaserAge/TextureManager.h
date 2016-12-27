@@ -29,12 +29,12 @@ public:
 	TextureManager(int widthWindow, int heightWindow);
 
 	// Всё что связано с меню
-	void setButtonStart(int widthWindow, int heightWindow, Color color);
-	void setButtonAbout(int x, int y, Color color);
-	void setButtonxit(int x, int y, Color color);
+	void setButtonStart(int x, int y); void setButtonStartColor(Color color);
+	void setButtonAbout(int x, int y);  void setButtonAboutColor(Color color);
+	void setButtonExit(int x, int y);  void setButtonExitColor(Color color);
 	Sprite getButtonStart() const { return menu1; }
 	Sprite getButtonAbout() const { return menu2; }
-	Sprite getButtonxit() const { return menu3; }
+	Sprite getButtonExit() const { return menu3; }
 
 	// Игровые текстуры
 	Sprite getBackgroundTexture() const { return bgSprite; }
