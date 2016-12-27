@@ -90,6 +90,7 @@ void TextureManager::setButtonAboutColor(Color color) { menu2.setColor(Color(col
 void TextureManager::setButtonExit(int x, int y) { menu3.setPosition(x, y); }
 void TextureManager::setButtonExitColor(Color color) { menu3.setColor(Color(color)); }
 
+
 Image TextureManager::getBulletImg(int lvl) const {
 	switch (lvl)
 	{
