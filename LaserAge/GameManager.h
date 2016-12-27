@@ -33,7 +33,7 @@ private:
 	int level, maxLvl;
 	bool next;
 	bool restartGame;
-	float ex, ey;
+	float ex, ey, ds;//sd-переменная шага
 	bool runL, runB;
 	//int score, health, life;
 	

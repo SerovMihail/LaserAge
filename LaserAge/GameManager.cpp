@@ -41,7 +41,7 @@ GameManager::GameManager(int W, int H) : m(W, H), p("Player", (W / 2), (H * 0.8)
 
 	ex = 0;
 	ey = 0;
-	
+	ds = 100;
 }
 
 
@@ -345,103 +345,103 @@ void GameManager::selectLvl(int lvl)
 		ex = 70;
 		ey = 50;
 
-		
 
-		while (ex < 700) {
+
+		while (ex < (widthWindow - 300)) {
 			entities.push_back(new EasyEnemy("EasyEnemy", ex, ey, widthWindow, heightWindow));
-			ex = ex + 100;
-			//std::cout << "ex: " << ex << "\n" << "ey: " << ey << "\n";
+			ex = ex + ds;
+			std::cout << "ex: " << ex << "\n" << "ey: " << ey << "\n";
 		}
-		
-		
+
+
 	}
 
 	if (lvl == 2) {
 		ex = 70;
 		ey = 50;
 
-		while (ex < 800) {
-			entities.push_back(new NormalEnemy("NormalEnemy",ex, ey, widthWindow, heightWindow));
-			ex = ex + 100;
+		while (ex < (widthWindow - 200)) {
+			entities.push_back(new NormalEnemy("NormalEnemy", ex, ey, widthWindow, heightWindow));
+			ex = ex + ds;
 		}
-		
+
 
 	}
 	if (lvl == 3) {
 
 		ex = 70;
 		ey = 50;
-		
-		while (ex < 800) {
+
+		while (ex < (widthWindow - 200)) {
 			entities.push_back(new HardEnemy("HardEnemy", ex, ey, widthWindow, heightWindow));
-			ex = ex + 100;
+			ex = ex + ds;
 		}
-		
+
 	}
 	if (lvl == 4) {
 
 		ex = 70;
 		ey = 50;
-		
-		while (ex < 800) {
+
+		while (ex < (widthWindow - 200)) {
 			ey = 100;
-			
+
 			entities.push_back(new HardEnemy("HardEnemy", ex, ey, widthWindow, heightWindow));
 
-			
+
 			entities.push_back(new EasyEnemy("EasyEnemy", ex, ey, widthWindow, heightWindow));
 
 			ey = 200;
 
 			entities.push_back(new EasyEnemy("EasyEnemy", ex, ey, widthWindow, heightWindow));
-			ex = ex + 100;
+			ex = ex + ds;
 		}
-		
+
 	}
 	if (lvl == 5) {
-		
+
 		ex = 70;
 		ey = 50;
 
-		while (ex < 800) {
+		while (ex < (widthWindow - 200)) {
 			ey = 100;
 
-			
+
 			entities.push_back(new  HardEnemy("HardEnemy", ex, ey, widthWindow, heightWindow));
 
-			
-			entities.push_back(new NormalEnemy("NormalEnemy",ex, ey, widthWindow, heightWindow));
+
+			entities.push_back(new NormalEnemy("NormalEnemy", ex, ey, widthWindow, heightWindow));
 
 
-			
+
 			entities.push_back(new EasyEnemy("EasyEnemy", ex, ey, widthWindow, heightWindow));
 
 			ey = 200;
 
 			entities.push_back(new EasyEnemy("EasyEnemy", ex, ey, widthWindow, heightWindow));
-			ex = ex + 100;
+			ex = ex + ds;
 		}
-		
+
 	}
 	if (lvl == 6) {
-		
+
 		ex = 70;
 		ey = 50;
 
-		while (ex < 800) {
+		while (ex < (widthWindow - 200)) {
 			ey = 100;
 
-			
+
 			entities.push_back(new  HardEnemy("HardEnemy", ex, ey, widthWindow, heightWindow));
 			ey = 200;
-			
+
 			entities.push_back(new  HardEnemy("HardEnemy", ex, ey, widthWindow, heightWindow));
 
-			
-			entities.push_back(new NormalEnemy("NormalEnemy",ex, ey, widthWindow, heightWindow));
+
+			entities.push_back(new NormalEnemy("NormalEnemy", ex, ey, widthWindow, heightWindow));
 			ey = 100;
 
-			
+
 			entities.push_back(new EasyEnemy("EasyEnemy", ex, ey, widthWindow, heightWindow));
 
 			ey = 200;
@@ -450,165 +450,165 @@ void GameManager::selectLvl(int lvl)
 			ex = ex + 100;
 
 		}
-		
+
 	}
 	if (lvl == 7) {
-		
+
 		ex = 70;
 		ey = 50;
 
-		while (ex < 800) {
+		while (ex < (widthWindow - 200)) {
 			ey = 100;
 
-			
+
 			entities.push_back(new  HardEnemy("HardEnemy", ex, ey, widthWindow, heightWindow));
 			ey = 200;
-			
+
 			entities.push_back(new  HardEnemy("HardEnemy", ex, ey, widthWindow, heightWindow));
 
-			
-			entities.push_back(new NormalEnemy("NormalEnemy",ex, ey, widthWindow, heightWindow));
+
+			entities.push_back(new NormalEnemy("NormalEnemy", ex, ey, widthWindow, heightWindow));
 			ey = 100;
-			
-			entities.push_back(new NormalEnemy("NormalEnemy",ex, ey, widthWindow, heightWindow));
+
+			entities.push_back(new NormalEnemy("NormalEnemy", ex, ey, widthWindow, heightWindow));
 
 
-			
+
 			entities.push_back(new EasyEnemy("EasyEnemy", ex, ey, widthWindow, heightWindow));
 
 			ey = 200;
 
 			entities.push_back(new EasyEnemy("EasyEnemy", ex, ey, widthWindow, heightWindow));
-			ex = ex + 100;
+			ex = ex + ds;
 
 		}
-		
+
 	}
 	if (lvl == 8) {
-		
-		while (ex < 800) {
+
+		while (ex < (widthWindow - 200)) {
 			ey = 80;
 
-			
+
 			entities.push_back(new  HardEnemy("HardEnemy", ex, ey, widthWindow, heightWindow));
 			ey = 160;
 
-			
+
 			entities.push_back(new  HardEnemy("HardEnemy", ex, ey, widthWindow, heightWindow));
 			ey = 240;
-			
+
 			entities.push_back(new  HardEnemy("HardEnemy", ex, ey, widthWindow, heightWindow));
-			
-			entities.push_back(new NormalEnemy("NormalEnemy",ex, ey, widthWindow, heightWindow));
+
+			entities.push_back(new NormalEnemy("NormalEnemy", ex, ey, widthWindow, heightWindow));
 			ey = 80;
-			
-			entities.push_back(new NormalEnemy("NormalEnemy",ex, ey, widthWindow, heightWindow));
+
+			entities.push_back(new NormalEnemy("NormalEnemy", ex, ey, widthWindow, heightWindow));
 
 
-			
+
 			entities.push_back(new EasyEnemy("EasyEnemy", ex, ey, widthWindow, heightWindow));
 
 			ey = 200;
 
 			entities.push_back(new EasyEnemy("EasyEnemy", ex, ey, widthWindow, heightWindow));
-			ex = ex + 100;
+			ex = ex + ds;
 
 		}
 		ex = 70;
 		ey = 50;
 	}
 	if (lvl == 9) {
-		
-		while (ex < 800) {
+
+		while (ex < (widthWindow - 200)) {
 			ey = 80;
 
-			
+
 			entities.push_back(new  HardEnemy("HardEnemy", ex, ey, widthWindow, heightWindow));
 			ey = 160;
 
-			
+
 			entities.push_back(new  HardEnemy("HardEnemy", ex, ey, widthWindow, heightWindow));
 
 			ey = 240;
-			
+
 			entities.push_back(new  HardEnemy("HardEnemy", ex, ey, widthWindow, heightWindow));
 
-			
-			entities.push_back(new NormalEnemy("NormalEnemy",ex, ey, widthWindow, heightWindow));
+
+			entities.push_back(new NormalEnemy("NormalEnemy", ex, ey, widthWindow, heightWindow));
 
 			ey = 80;
-			
-			entities.push_back(new NormalEnemy("NormalEnemy",ex, ey, widthWindow, heightWindow));
 
-		
+			entities.push_back(new NormalEnemy("NormalEnemy", ex, ey, widthWindow, heightWindow));
+
+
 			entities.push_back(new EasyEnemy("EasyEnemy", ex, ey, widthWindow, heightWindow));
 
 			ey = 160;
-			
+
 			entities.push_back(new EasyEnemy("EasyEnemy", ex, ey, widthWindow, heightWindow));
 			ey = 240;
 
 			entities.push_back(new EasyEnemy("EasyEnemy", ex, ey, widthWindow, heightWindow));
-			ex = ex + 100;
+			ex = ex + ds;
 
 		}
 		ex = 70;
 		ey = 50;
 	}
 	if (lvl == 10) {
-	
+
 		ex = 100;
-		while (ex < 800) {
+		while (ex < (widthWindow - 200)) {
 
 			ey = 70;
 
-			
+
 			entities.push_back(new EasyEnemy("EasyEnemy", ex, ey, widthWindow, heightWindow));
-			
-			entities.push_back(new NormalEnemy("NormalEnemy",ex, ey, widthWindow, heightWindow));
+
+			entities.push_back(new NormalEnemy("NormalEnemy", ex, ey, widthWindow, heightWindow));
 			ey = 160;
-			
-			entities.push_back(new NormalEnemy("NormalEnemy",ex, ey, widthWindow, heightWindow));
-			
+
+			entities.push_back(new NormalEnemy("NormalEnemy", ex, ey, widthWindow, heightWindow));
+
 			entities.push_back(new  HardEnemy("HardEnemy", ex, ey, widthWindow, heightWindow));
-			ex = ex + 100;
+			ex = ex + ds;
 		}
 		ex = 160;
-		while (ex < 900) {
+		while (ex < (widthWindow - 100)) {
 
 			ey = 200;
 
-			
+
 			entities.push_back(new EasyEnemy("EasyEnemy", ex, ey, widthWindow, heightWindow));
-		
-			entities.push_back(new NormalEnemy("NormalEnemy",ex, ey, widthWindow, heightWindow));
-			
+
+			entities.push_back(new NormalEnemy("NormalEnemy", ex, ey, widthWindow, heightWindow));
+
 			entities.push_back(new  HardEnemy("HardEnemy", ex, ey, widthWindow, heightWindow));
-			ex = ex + 100;
+			ex = ex + ds;
 		}
 		ex = 70;
 		ey = 50;
 	}
 	if (lvl == 11) {
-		
+
 		ex = 100;
-		while (ex < 800) {
+		while (ex < (widthWindow - 200)) {
 			ey = 70;
-			
+
 			entities.push_back(new  HardEnemy("HardEnemy", ex, ey, widthWindow, heightWindow));
-			
-			entities.push_back(new NormalEnemy("NormalEnemy",ex, ey, widthWindow, heightWindow));
+
+			entities.push_back(new NormalEnemy("NormalEnemy", ex, ey, widthWindow, heightWindow));
 			ey = 140;
-			
+
 			entities.push_back(new  HardEnemy("HardEnemy", ex, ey, widthWindow, heightWindow));
-			
-			entities.push_back(new NormalEnemy("NormalEnemy",ex, ey, widthWindow, heightWindow));
+
+			entities.push_back(new NormalEnemy("NormalEnemy", ex, ey, widthWindow, heightWindow));
 			ey = 210;
-			
+
 			entities.push_back(new  HardEnemy("HardEnemy", ex, ey, widthWindow, heightWindow));
-			
-			entities.push_back(new NormalEnemy("NormalEnemy",ex, ey, widthWindow, heightWindow));
-			ex = ex + 100;
+
+			entities.push_back(new NormalEnemy("NormalEnemy", ex, ey, widthWindow, heightWindow));
+			ex = ex + ds;
 		}
 		ex = 70;
 		ey = 50;
