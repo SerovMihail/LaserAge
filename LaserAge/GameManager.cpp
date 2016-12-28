@@ -330,9 +330,9 @@ void GameManager::runContainer(float spawntime) {
 }
 
 void GameManager::selectWeapon(int weaponLvl, Player & p) {
-	if (weaponLvl == 1) { bullet.push_back(new LaserBullet("LaserBullet", p.getX(/*p*/) + (p.getSpriteWidth() / 4), p.getY(/*p*/), widthWindow, heightWindow)); }
-	if (weaponLvl == 2) { bullet.push_back(new MediumBullet("MediumBullet", p.getX(/*p*/) + (p.getSpriteWidth() / 4), p.getY(/*p*/), widthWindow, heightWindow)); }
-	if (weaponLvl == 3) { bullet.push_back(new BigBullet("BigBullet", p.getX(/*p*/) + (p.getSpriteWidth() / 4), p.getY(/*p*/), widthWindow, heightWindow)); }
+	if (weaponLvl == 1) { bullet.push_back(new LaserBullet("LaserBullet", p.getX(/*p*/) - 2 + (p.getSpriteWidth() / 4), p.getY(/*p*/), widthWindow, heightWindow)); }
+	if (weaponLvl == 2) { bullet.push_back(new MediumBullet("MediumBullet", p.getX(/*p*/) - 19 + (p.getSpriteWidth() / 4), p.getY(/*p*/), widthWindow, heightWindow)); }
+	if (weaponLvl == 3) { bullet.push_back(new BigBullet("BigBullet", p.getX(/*p*/) - 29 + (p.getSpriteWidth() / 4), p.getY(/*p*/), widthWindow, heightWindow)); }
 }
 
 void GameManager::selectLvl(int lvl)
