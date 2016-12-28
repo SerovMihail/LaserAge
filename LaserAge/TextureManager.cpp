@@ -14,7 +14,7 @@ TextureManager::TextureManager(int widthWindow, int heightWindow)
 
 	// Картинки игрока
 	ship.loadFromFile("images/orangePlayer.png");
-
+	
 	// Картинки для пулей
 	laser.loadFromFile("images/laserRed.png"); 	// 1 тип
 	normalLaser.loadFromFile("images/normalLaser.png"); // 2 тип

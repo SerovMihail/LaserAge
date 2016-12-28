@@ -24,7 +24,7 @@ private:
 	// ѕеременные дл€ динамического отображени€ характеристик игрока
 	std::ostringstream playerHealthString, gameTimeString, playerLifeString, playerScoreString;   
 	std::ostringstream xStr, yStr;
-
+	/*Image &Sh = getPlayerImg();*/
 public:
 	TextureManager(int widthWindow, int heightWindow);
 
@@ -44,7 +44,11 @@ public:
 	Image getBulletImg(int lvl) const;
 	Image getContainerImg(String name) const;
 	Image getEnemyImg(int lvl) const;
-
+	
+	Image &Sh = ship;
+	Sprite &bgt=bgSprite;
+	Image &eL = enemyLaser;
+	Image &di = defaultImg;
 	// –абота с текстовыми переменными
 	void setText(Player & p);
 	Text getText() const {	return text; };

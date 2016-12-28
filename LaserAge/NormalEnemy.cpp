@@ -18,7 +18,7 @@ NormalEnemy::NormalEnemy(String Name, float X, float Y, int W, int H) :Enemy(Nam
 
 
 	dx = 0.2;
-	dy = 0.3;
+	dy = 0.2;
 
 	
 	
@@ -29,38 +29,40 @@ NormalEnemy::NormalEnemy(String Name, float X, float Y, int W, int H) :Enemy(Nam
 	spriteHeight = sprite.getTextureRect().height; // Высота спрайта
 	spriteWidth = sprite.getTextureRect().width; // Ширина спрайта	
 }
-void NormalEnemy::update(float time) {
 	
-	if (y >= windowHeight -280 || y <= (windowHeight -(windowHeight -30))) {
+
+void NormalEnemy::update(float time) {
+
+	x = x + dx*time;
+	y = y + dy*time;
+	if (y >= windowHeight - 280 || y <= (windowHeight - (windowHeight - 30))) {
 		dy = dy*(-1);
 	}
-	if (x >= (windowWidth -40) || x <=(windowWidth -(windowWidth- 40))) {
+	if (x >= (windowWidth - 40) || x <= (windowWidth - (windowWidth - 40))) {
+
 		
 		dx = dx*(-1);
 	}
 
-	x = x + dx*time;
-	y = y + dy*time;
+    while (x >(windowWidth - 90))
+    {
+	 x = (windowWidth - 110);
 
-	//while (x > 961)
-	//{
-	//	x = 959;
+    }
 
-	//}
+    while (x < (windowWidth - (windowWidth - 30))) {
+	 x = (windowWidth - (windowWidth - 50));
+    }
 
-	//while (x < 35) {
-	//	x = 39;
-	//}
+    while (y >(windowHeight - 270))
+    {
+	 y = (windowHeight - 290);
 
-	//while (y > 225)
-	//{
-	//	y = 219;
+    }
 
-	//}
-
-	//while (y < 25) {
-	//	y = 31;
-	//}
+    while (y <(windowHeight - (windowHeight - 20))) {
+	 y = (windowHeight - (windowHeight - 40));
+    }
 
 	
 

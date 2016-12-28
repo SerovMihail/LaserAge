@@ -64,7 +64,7 @@ void Menu::Display(RenderWindow & window) {
 		}
 
 		// отображаем все элементы меню
-		window.draw(tm.getBackgroundTexture());
+		window.draw(tm.bgt);
 		window.draw(tm.getTitleText());
 		window.draw(tm.getButtonStart());
 		window.draw(tm.getButtonAbout());
