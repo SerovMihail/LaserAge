@@ -10,7 +10,7 @@ class Enemy :public GameObject
 
 public:
 	
-	virtual void update(float time, int width, int heigth)=0;
+	virtual void update(int time, int width, int heigth)=0;
 
 
 	

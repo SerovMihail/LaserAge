@@ -8,7 +8,7 @@ EnemyBullet::EnemyBullet(String Name, float X, float Y, int W, int H) :Bullet(Na
 {
 	speed *= (-1);
 
-	texture.loadFromImage(tm.getEnemyLaser1());
+	texture.loadFromImage(tm.eL);
 	sprite.setTexture(texture);
 	sprite.setScale(0.5, 0.5); // לאסרעאב
 
