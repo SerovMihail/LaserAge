@@ -33,9 +33,9 @@ public:
 	}
 	void setIAmAlive(bool live) {	iAmAlive = live;	}
 	void setWin(bool victory) {	win = victory;	}
-	int& getScore(Player & p) const {	return p.playerScore;	}
-	int& getLife(Player & p) const {	return p.life;	}
-	int& getHealth(Player & p) const {	return p.health;	}
+	int getScore() const {	return playerScore;	}
+	int getLife() const {	return life;	}
+	int getHealth() const {	return health;	}
 	void addLife() { life++; };
 	int getBulletLvl() const { return bulletLvl; };
 	void updateBullets(int lvl) { bulletLvl++; };

@@ -3,7 +3,6 @@
 
 using namespace sf;
 
-class TxtureManager;
 //// Базовый класс ///////
 GameObject::GameObject(String Name, float X, float Y,  int W, int H)
 {	// Каждый объект в игре будет обладать рядом свойств. Основные, на которых будет основываться все объекты игры мы
@@ -35,10 +34,7 @@ GameObject::GameObject(String Name, float X, float Y,  int W, int H)
 }
 
 
-void GameObject::update(float time)
-{
-	
-}
+
 
 
 

@@ -7,7 +7,9 @@ HardEnemy::HardEnemy(String Name, float X, float Y, int W, int H) :Enemy(Name, X
 	y = Y;
 	dx = 0.4;
 	dy = 0.2;
-	
+
+	windowHeight = H;
+	windowWidth = W;
 
 	texture.loadFromImage(tm.getEnemyImg(3));
 	sprite.setTexture(texture);
@@ -18,12 +20,12 @@ HardEnemy::HardEnemy(String Name, float X, float Y, int W, int H) :Enemy(Name, X
 
 	
 }
-void HardEnemy::update(float time ,int width, int heigth) {
+void HardEnemy::update(float time) {
 	
-	if (y >= heigth - 280 || y <= (heigth - (heigth - 30))) {
+	if (y >= windowHeight - 280 || y <= (windowHeight - (windowHeight - 30))) {
 		dy = dy*(-1);
 	}
-	if (x >= (width - 40) || x <= (width - (width - 40))) {
+	if (x >= (windowWidth - 40) || x <= (windowWidth - (windowWidth - 40))) {
 
 		dx = dx*(-1);
 	}

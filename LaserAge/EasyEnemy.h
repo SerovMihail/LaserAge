@@ -13,7 +13,8 @@ public:
 	
 	
 	EasyEnemy(String Name, float X, float Y, int W, int H);
-	void update(float time, int width, int heigth);
+	void update(float time);
+	
 	
 };
 

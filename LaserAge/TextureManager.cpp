@@ -134,10 +134,10 @@ void TextureManager::setText(Player & p) {
 
 	xStr << p.getX(/*p*/);
 	yStr << p.getY(/*p*/);
-	playerHealthString << p.getHealth(p);
+	playerHealthString << p.getHealth();
 	//gameTimeString << spawnTime;// gameTime;
-	playerLifeString << p.getLife(p);
-	playerScoreString << p.getScore(p);
+	playerLifeString << p.getLife();
+	playerScoreString << p.getScore();
 
 	//txt.setString("Score:" + playerScoreString.str()
 	//	+ "\nHealth: " + playerHealthString.str()

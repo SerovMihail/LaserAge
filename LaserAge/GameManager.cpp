@@ -289,7 +289,7 @@ void GameManager::update(Player & p) {
 	////// ÂÐÀÃÈ. ÈÕ ÎÁÍÎÂËÅÍÈÅ //////
 	for (et = entities.begin(); et != entities.end(); et++) {
 		
-		(*et)->update(fpsTime, widthWindow, heightWindow);
+		(*et)->update(fpsTime);
 		if ((spawnTime > 2000 && spawnTime < 2005) || (spawnTime > 5000 && spawnTime < 5005) || (spawnTime > 8000 && spawnTime < 8005)) {
 			ebullet.push_back(new EnemyBullet("enemyLaser", (*et)->getX(), (*et)->getY(), widthWindow, heightWindow));
 		}

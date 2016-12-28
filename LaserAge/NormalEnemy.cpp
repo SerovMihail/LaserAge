@@ -13,6 +13,9 @@ NormalEnemy::NormalEnemy(String Name, float X, float Y, int W, int H) :Enemy(Nam
 	x = X;
 	y = Y;
 
+	windowHeight = H;
+	windowWidth = W;
+
 
 	dx = 0.2;
 	dy = 0.3;
@@ -26,12 +29,12 @@ NormalEnemy::NormalEnemy(String Name, float X, float Y, int W, int H) :Enemy(Nam
 	spriteHeight = sprite.getTextureRect().height; // Высота спрайта
 	spriteWidth = sprite.getTextureRect().width; // Ширина спрайта	
 }
-void NormalEnemy::update(float time, int width, int heigth) {
+void NormalEnemy::update(float time) {
 	
-	if (y >= heigth-280 || y <= (heigth-(heigth-30))) {
+	if (y >= windowHeight -280 || y <= (windowHeight -(windowHeight -30))) {
 		dy = dy*(-1);
 	}
-	if (x >= (width-40) || x <=(width-(width- 40))) {
+	if (x >= (windowWidth -40) || x <=(windowWidth -(windowWidth- 40))) {
 		
 		dx = dx*(-1);
 	}

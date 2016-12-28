@@ -9,13 +9,8 @@ class Enemy :public GameObject
 {
 
 public:
-	
-	virtual void update(float time, int width, int heigth)=0;
-
-
-	
-
 	Enemy(String Name, float X, float Y, int W, int H);
+	
 
 };
 

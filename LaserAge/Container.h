@@ -10,7 +10,7 @@ class Container : public GameObject
 public:
 	
 	Container(String Name, float X, float Y, int W, int H);
-	void update(float time);
+	virtual void update(float time);
 	~Container();
 };
 
