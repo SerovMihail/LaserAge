@@ -104,8 +104,8 @@ bool GameManager::play(int & Level)
 
 			window.display();
 
-			/*std::cout << fpsTime << "\n";
-			std::cout << gameTime << "\n";
+			/*std::cout << fpsTime << "\n";*/
+			/*std::cout << gameTime << "\n";
 			std::cout << spawnTime << "\n";*/
 
 
@@ -330,9 +330,9 @@ void GameManager::runContainer(float spawntime) {
 }
 
 void GameManager::selectWeapon(int weaponLvl, Player & p) {
-	if (weaponLvl == 1) { bullet.push_back(new LaserBullet("LaserBullet", p.getX(/*p*/) + (p.getSpriteWidth() / 4), p.getY(/*p*/), widthWindow, heightWindow)); }
-	if (weaponLvl == 2) { bullet.push_back(new MediumBullet("MediumBullet", p.getX(/*p*/) + (p.getSpriteWidth() / 4), p.getY(/*p*/), widthWindow, heightWindow)); }
-	if (weaponLvl == 3) { bullet.push_back(new BigBullet("BigBullet", p.getX(/*p*/) + (p.getSpriteWidth() / 4), p.getY(/*p*/), widthWindow, heightWindow)); }
+	if (weaponLvl == 1) { bullet.push_back(new LaserBullet("LaserBullet", p.getX(/*p*/) - 2 + (p.getSpriteWidth() / 4), p.getY(/*p*/), widthWindow, heightWindow)); }
+	if (weaponLvl == 2) { bullet.push_back(new MediumBullet("MediumBullet", p.getX(/*p*/) - 19 + (p.getSpriteWidth() / 4), p.getY(/*p*/), widthWindow, heightWindow)); }
+	if (weaponLvl == 3) { bullet.push_back(new BigBullet("BigBullet", p.getX(/*p*/) - 29 + (p.getSpriteWidth() / 4), p.getY(/*p*/), widthWindow, heightWindow)); }
 }
 
 void GameManager::selectLvl(int lvl)
@@ -342,12 +342,12 @@ void GameManager::selectLvl(int lvl)
 
 	
 	if (lvl == 1) {
-		ex = 70;
+		ex = 100;
 		ey = 50;
 
 
 
-		while (ex < (widthWindow - 300)) {
+		while (ex <=(widthWindow - 300)) {
 			entities.push_back(new EasyEnemy("EasyEnemy", ex, ey, widthWindow, heightWindow));
 			ex = ex + ds;
 			std::cout << "ex: " << ex << "\n" << "ey: " << ey << "\n";
@@ -357,10 +357,10 @@ void GameManager::selectLvl(int lvl)
 	}
 
 	if (lvl == 2) {
-		ex = 70;
+		ex = 100;
 		ey = 50;
 
-		while (ex < (widthWindow - 200)) {
+		while (ex <=(widthWindow - 200)) {
 			entities.push_back(new NormalEnemy("NormalEnemy", ex, ey, widthWindow, heightWindow));
 			ex = ex + ds;
 		}
@@ -369,7 +369,7 @@ void GameManager::selectLvl(int lvl)
 	}
 	if (lvl == 3) {
 
-		ex = 70;
+		ex = 100;
 		ey = 50;
 
 		while (ex < (widthWindow - 200)) {
@@ -380,7 +380,7 @@ void GameManager::selectLvl(int lvl)
 	}
 	if (lvl == 4) {
 
-		ex = 70;
+		ex = 100;
 		ey = 50;
 
 		while (ex < (widthWindow - 200)) {
@@ -400,7 +400,7 @@ void GameManager::selectLvl(int lvl)
 	}
 	if (lvl == 5) {
 
-		ex = 70;
+		ex = 100;
 		ey = 50;
 
 		while (ex < (widthWindow - 200)) {
@@ -425,7 +425,7 @@ void GameManager::selectLvl(int lvl)
 	}
 	if (lvl == 6) {
 
-		ex = 70;
+		ex = 100;
 		ey = 50;
 
 		while (ex < (widthWindow - 200)) {
@@ -447,14 +447,14 @@ void GameManager::selectLvl(int lvl)
 			ey = 200;
 
 			entities.push_back(new EasyEnemy("EasyEnemy", ex, ey, widthWindow, heightWindow));
-			ex = ex + 100;
+			ex = ex + ds;
 
 		}
 
 	}
 	if (lvl == 7) {
 
-		ex = 70;
+		ex = 100;
 		ey = 50;
 
 		while (ex < (widthWindow - 200)) {
@@ -485,7 +485,8 @@ void GameManager::selectLvl(int lvl)
 
 	}
 	if (lvl == 8) {
-
+		ex = 100;
+		ey = 50;
 		while (ex < (widthWindow - 200)) {
 			ey = 80;
 
@@ -518,7 +519,8 @@ void GameManager::selectLvl(int lvl)
 		ey = 50;
 	}
 	if (lvl == 9) {
-
+		ex = 100;
+		ey = 50;
 		while (ex < (widthWindow - 200)) {
 			ey = 80;
 
@@ -552,12 +554,12 @@ void GameManager::selectLvl(int lvl)
 			ex = ex + ds;
 
 		}
-		ex = 70;
-		ey = 50;
+		
 	}
 	if (lvl == 10) {
 
 		ex = 100;
+		ey = 50;
 		while (ex < (widthWindow - 200)) {
 
 			ey = 70;
@@ -573,7 +575,7 @@ void GameManager::selectLvl(int lvl)
 			entities.push_back(new  HardEnemy("HardEnemy", ex, ey, widthWindow, heightWindow));
 			ex = ex + ds;
 		}
-		ex = 160;
+		ex = 200;
 		while (ex < (widthWindow - 100)) {
 
 			ey = 200;
@@ -586,7 +588,7 @@ void GameManager::selectLvl(int lvl)
 			entities.push_back(new  HardEnemy("HardEnemy", ex, ey, widthWindow, heightWindow));
 			ex = ex + ds;
 		}
-		ex = 70;
+		ex = 100;
 		ey = 50;
 	}
 	if (lvl == 11) {
@@ -610,8 +612,7 @@ void GameManager::selectLvl(int lvl)
 			entities.push_back(new NormalEnemy("NormalEnemy", ex, ey, widthWindow, heightWindow));
 			ex = ex + ds;
 		}
-		ex = 70;
-		ey = 50;
+		
 	}
 }
 

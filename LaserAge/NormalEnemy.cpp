@@ -29,7 +29,6 @@ NormalEnemy::NormalEnemy(String Name, float X, float Y, int W, int H) :Enemy(Nam
 	spriteHeight = sprite.getTextureRect().height; // Высота спрайта
 	spriteWidth = sprite.getTextureRect().width; // Ширина спрайта	
 }
-	
 
 void NormalEnemy::update(float time) {
 

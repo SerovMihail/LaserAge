@@ -20,6 +20,7 @@ HardEnemy::HardEnemy(String Name, float X, float Y, int W, int H) :Enemy(Name, X
 
 	
 }
+
 void HardEnemy::update(float time) {
 	
 	if (y >= windowHeight - 280 || y <= (windowHeight - (windowHeight - 30))) {

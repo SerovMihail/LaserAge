@@ -23,7 +23,7 @@ GameObject::GameObject(String Name, float X, float Y,  int W, int H)
 	name = Name; 
 
 	// Исп в наследуемых классах
-	//txture.loadFromImage(tm.getDefaultImg());
+	//txture.loadFromImage(tm.di);
 	//sprite.setTxture(txture);
 	//sprite.setScale(0.5, 0.5); // масштаб
 

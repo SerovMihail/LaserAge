@@ -7,14 +7,14 @@
 #include <algorithm> 
 #include "TextureManager.h"
 #include "GameManager.h"
-class EasyEnemy: public Enemy
+class EasyEnemy : public Enemy
 {
 public:
-	
-	
-	EasyEnemy(String Name, float X, float Y, int W, int H);
-	void update(float time);
-	
-	
-};
 
+
+	EasyEnemy(String Name, float X, float Y, int W, int H);
+
+	void update(float time);
+
+
+};
