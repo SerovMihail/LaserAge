@@ -12,13 +12,10 @@ EasyEnemy::EasyEnemy(String Name, float X, float Y, int W, int H): Enemy(Name, X
 {
 	x = X;
 	y = Y;
-
+	dx = 0.1;	
 
 	windowHeight = H;
 	windowWidth = W;
-
-	dx = 0.1;	
-
 		
 	texture.loadFromImage(tm.getEnemyImg(1));
 	sprite.setTexture(texture);
