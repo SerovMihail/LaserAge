@@ -11,8 +11,8 @@ HardEnemy::HardEnemy(String Name, float X, float Y, int W, int H) :Enemy(Name, X
 	windowHeight = H;
 	windowWidth = W;
 
-	texture.loadFromImage(tm.getEnemyImg(3));
-	sprite.setTexture(texture);
+	//texture.loadFromImage(tm.getEnemyImg(3));
+	sprite.setTexture(*tm.get("enemy3"));
 	sprite.setScale(0.4, 0.4); // масштаб
 
 	spriteHeight = sprite.getTextureRect().height; // Высота спрайта
@@ -24,10 +24,13 @@ HardEnemy::HardEnemy(String Name, float X, float Y, int W, int H) :Enemy(Name, X
 
 void HardEnemy::update(float time) {
 	
+	x = x + dx*time;
+	y = y + dy*time;
+
 	if (y >= windowHeight - 280 || y <= (windowHeight - (windowHeight - 30))) {
 		dy = dy*(-1);
 	}
-	if (x >= (windowWidth - 40) || x <= (windowWidth - (windowWidth - 40))) {
+	if (x >= (windowWidth - 100) || x <= (windowWidth - (windowWidth - 40))) {
 
 
 		dx = dx*(-1);

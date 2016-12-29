@@ -8,9 +8,9 @@
 Player::Player(String Name, float X, float Y, int W, int H, int Health):GameObject(Name, X, Y, W, H)
 {
 	/*Image &Sh = tm.getPlayerImg;*/
-	texture.loadFromImage(tm.Sh);
+	//texture.loadFromImage(*tm.get("player"));
 	//txture.loadFromFile("images/orangePlayer.png");
-	sprite.setTexture(texture);
+	sprite.setTexture(*tm.get("player"));
 	sprite.setScale(0.5, 0.5); // масштаб
 	
 	spriteHeight = sprite.getTextureRect().height; // Высота спрайта

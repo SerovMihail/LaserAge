@@ -91,37 +91,54 @@ void TextureManager::setButtonExit(int x, int y) { menu3.setPosition(x, y); }
 void TextureManager::setButtonExitColor(Color color) { menu3.setColor(Color(color)); }
 
 
-Image TextureManager::getBulletImg(int lvl) const {
-	switch (lvl)
-	{
-		case 1: {return laser; }
-		case 2: { return normalLaser; }
-		case 3: { return bigLaser; }
-		default:
-			std::cout << "Error on load bullet img";
-			break;
-	}
-	
-}
+//Image TextureManager::getBulletImg(int lvl) const {
+//	switch (lvl)
+//	{
+//		case 1: {return laser; }
+//		case 2: { return normalLaser; }
+//		case 3: { return bigLaser; }
+//		default:
+//			std::cout << "Error on load bullet img";
+//			break;
+//	}
+//	
+//}
+//
+//Image TextureManager::getContainerImg(String name) const {
+//	
+//	if (name == "life") { return ContainerLife;  }
+//	if (name == "bullet") { return ContainerBullet; }
+//}
+//
+//Image TextureManager::getEnemyImg(int lvl) const
+//{
+//	switch (lvl)
+//	{
+//	case 1: { return easyEnemy;  }
+//	case 2: { return normalEnemy; }
+//	case 3: { return hardEnemy; }
+//	default:
+//		std::cout << "Error on load Enemy Img";
+//		break;
+//	}
+//	
+//}
 
-Image TextureManager::getContainerImg(String name) const {
-	
-	if (name == "life") { return ContainerLife;  }
-	if (name == "bullet") { return ContainerBullet; }
-}
+Texture* TextureManager::get(const char *name) {
 
-Image TextureManager::getEnemyImg(int lvl) const
-{
-	switch (lvl)
-	{
-	case 1: { return easyEnemy;  }
-	case 2: { return normalEnemy; }
-	case 3: { return hardEnemy; }
-	default:
-		std::cout << "Error on load Enemy Img";
-		break;
-	}
-	
+	if (name == "none") return &defaultImg; // Для заглушек, белый квадрат
+	if (name == "player") return &ship;
+	if (name == "bullet1") return &laser;
+	if (name == "bullet2") return &normalLaser;
+	if (name == "bullet3") return &bigLaser;
+	if (name == "ebullet") return &enemyLaser;
+	if (name == "containerLife") return &ContainerLife;
+	if (name == "containerBullet") return &ContainerBullet;
+	if (name == "enemy1") return &easyEnemy;
+	if (name == "enemy2") return &normalEnemy;
+	if (name == "enemy3") return &hardEnemy;
+	else { std::cout << "Not found " << *name << "\n"; }
+
 }
 
 void TextureManager::setText(Player & p) {

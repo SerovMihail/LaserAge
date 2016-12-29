@@ -19,8 +19,8 @@ NormalEnemy::NormalEnemy(String Name, float X, float Y, int W, int H) :Enemy(Nam
 	dx = 0.2;
 	dy = 0.2;
 	
-	texture.loadFromImage(tm.getEnemyImg(2));
-	sprite.setTexture(texture);
+	//texture.loadFromImage(*tm.get("enemy2"));
+	sprite.setTexture(*tm.get("enemy2"));
 	sprite.setScale(0.5, 0.5); // масштаб
 
 	spriteHeight = sprite.getTextureRect().height; // Высота спрайта
@@ -35,7 +35,7 @@ void NormalEnemy::update(float time) {
 	if (y >= windowHeight - 280 || y <= (windowHeight - (windowHeight - 30))) {
 		dy = dy*(-1);
 	}
-	if (x >= (windowWidth - 40) || x <= (windowWidth - (windowWidth - 40))) {
+	if (x >= (windowWidth - 100) || x <= (windowWidth - (windowWidth - 40))) {
 		
 		dx = dx*(-1);
 	}

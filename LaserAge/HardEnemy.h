@@ -11,7 +11,6 @@ public:
 	
 	HardEnemy(String Name, float X, float Y, int W, int H);
 
-
 	void update(float time);
 
 
