@@ -20,7 +20,7 @@ HardEnemy::HardEnemy(String Name, float X, float Y, int W, int H) :Enemy(Name, X
 
 	
 }
-<<<<<<< HEAD
+
 
 void HardEnemy::update(float time) {
 	
@@ -28,37 +28,29 @@ void HardEnemy::update(float time) {
 		dy = dy*(-1);
 	}
 	if (x >= (windowWidth - 40) || x <= (windowWidth - (windowWidth - 40))) {
-=======
-void HardEnemy::update(int time ,int width, int heigth) {
-	x = x + dx*time;
-	y = y + dy*time;
-	if (y >= (heigth - 280) || y <= (heigth - (heigth - 30))) {
-		dy = dy*(-1);
-	}
-	if (x >= (width - 100) || x <= (width - (width - 40))) {
->>>>>>> origin/master
+
 
 		dx = dx*(-1);
 	}
 
-	while (x >(width - 90))
+	while (x >(windowWidth - 90))
 	{
-		x = (width - 110);
+		x = (windowWidth - 110);
 
 	}
 
-	while (x < (width - (width - 30))) {
-		x = (width - (width - 50));
+	while (x < (windowWidth - (windowWidth - 30))) {
+		x = (windowWidth - (windowWidth - 50));
 	}
 
-	while (y >(heigth - 270))
+	while (y >(windowHeight - 270))
 	{
-		y = (heigth - 290);
+		y = (windowHeight - 290);
 
 	}
 
-	while (y <(heigth - (heigth - 20))) {
-		y = (heigth - (heigth - 40));
+	while (y <(windowHeight - (windowHeight - 20))) {
+		y = (windowHeight - (windowHeight - 40));
 	}
 	
 
